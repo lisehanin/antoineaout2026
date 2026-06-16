@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Voyage Eté 2026 • 1–8 août</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bleu:#2A5F8F; --bleu-clair:#4A8ABF; --or:#C8973A; --sable:#F5EDE0;
+  --fonce:#1A2E40; --turquoise:#3A8A7A; --creme:#FDFAF5; --mid:#6A7A8A;
+  --text:#2E3A45; --light-bg:#F0F5F8; --nav-h:60px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden;font-size:16px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,245,0.97);backdrop-filter:blur(20px);height:var(--nav-h);border-bottom:1px solid rgba(42,95,143,0.15);box-shadow:0 2px 16px rgba(26,46,64,0.08);display:flex;align-items:stretch;}
+.nav-tabs{display:flex;width:100%;}
+.nav-tab{flex:1;background:none;border:none;border-bottom:2.5px solid transparent;color:rgba(46,58,69,0.38);font-family:'Jost',sans-serif;font-size:0.54rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.18rem;padding:0.3rem 0.1rem 0.2rem;transition:all 0.2s;}
+.nav-tab .tab-icon{font-size:1.2rem;line-height:1;}
+.nav-tab .tab-label{line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.nav-tab:hover{color:var(--bleu);}
+.nav-tab.active{color:var(--bleu);border-bottom-color:var(--bleu);}
+.page{display:none;min-height:100vh;padding-top:var(--nav-h);padding-bottom:3rem;}
+.page.active{display:block;}
+#page-accueil{background:var(--fonce);padding-bottom:0;min-height:auto;}
+.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.5rem 1.5rem 2rem;}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--or);margin-bottom:0.7rem;font-weight:500;opacity:0;animation:fadeUp 0.8s 0.3s forwards;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,13vw,5.5rem);font-weight:600;color:#EEF4F8;line-height:0.92;margin-bottom:0.8rem;opacity:0;animation:fadeUp 0.9s 0.5s forwards;}
+.hero-title em{color:#7EC8E3;font-style:italic;}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.5vw,1.25rem);color:rgba(238,244,248,0.7);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s 0.7s forwards;}
+.hero-dates{opacity:0;animation:fadeUp 0.9s 0.9s forwards;}
+.date-pill{display:inline-flex;align-items:center;gap:0.75rem;background:var(--bleu);color:white;padding:0.72rem 1.7rem;border-radius:100px;font-size:0.9rem;font-weight:500;letter-spacing:0.05em;}
+.date-pill .sep{opacity:0.5;}
+.dest-grid{padding:1.5rem 1rem 1rem;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem;}
+.dest-card-mini{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all 0.2s;}
+.dest-card-mini:hover{background:rgba(255,255,255,0.11);}
+.dest-card-mini-left{display:flex;align-items:center;gap:1rem;}
+.dest-flag{font-size:1.8rem;}
+.dest-card-mini-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:#EEF4F8;line-height:1.1;}
+.dest-card-mini-sub{font-size:0.72rem;color:rgba(238,244,248,0.5);margin-top:0.15rem;}
+.dest-card-mini-total{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--or);}
+.dest-card-mini-label{font-size:0.6rem;color:rgba(238,244,248,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.1rem;}
+.dest-card-mini-arrow{color:rgba(238,244,248,0.3);font-size:1.2rem;margin-left:0.75rem;}
+.section-wrap{max-width:680px;margin:0 auto;padding:1.8rem 1rem 1rem;}
+.section-header{margin-bottom:1.75rem;text-align:center;}
+.section-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--bleu);margin-bottom:0.45rem;font-weight:500;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6vw,2.6rem);color:var(--fonce);line-height:1.1;font-weight:600;}
+.dest-page{background:var(--light-bg);}
+.sub-tabs{display:flex;background:white;border-radius:14px;padding:0.3rem;margin-bottom:1.5rem;box-shadow:0 1px 8px rgba(26,46,64,0.07);gap:0.25rem;}
+.sub-tab{flex:1;background:none;border:none;border-radius:10px;padding:0.65rem 0.4rem;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--mid);cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:0.2rem;}
+.sub-tab .sub-tab-icon{font-size:1.05rem;}
+.sub-tab.active{background:var(--bleu);color:white;}
+.sub-tab:hover:not(.active){background:var(--light-bg);color:var(--bleu);}
+.sub-content{display:none;}
+.sub-content.active{display:block;}
+.prop-block{background:white;border-radius:18px;overflow:hidden;box-shadow:0 2px 14px rgba(26,46,64,0.07);margin-bottom:1.1rem;border:1px solid rgba(42,95,143,0.07);}
+.prop-block-header{padding:1rem 1.2rem;background:var(--bleu);color:white;display:flex;align-items:center;justify-content:space-between;}
+.prop-block-header.or{background:var(--or);}
+.prop-block-header.turquoise{background:var(--turquoise);}
+.prop-block-header.fonce{background:var(--fonce);}
+.prop-block-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;}
+.prop-block-sub{font-size:0.7rem;opacity:0.8;margin-top:0.1rem;}
+.prop-block-badge{background:rgba(255,255,255,0.2);padding:0.3rem 0.8rem;border-radius:100px;font-size:0.78rem;font-weight:500;white-space:nowrap;}
+.prop-block-body{padding:1.1rem;}
+.vol-route{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:1rem;background:var(--light-bg);border-radius:12px;padding:1rem 0.8rem;}
+.vol-city{text-align:center;flex-shrink:0;}
+.vol-code{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--fonce);line-height:1;}
+.vol-time{font-size:1rem;font-weight:600;color:var(--bleu);margin-top:0.12rem;}
+.vol-city-name{font-size:0.6rem;color:#AAA;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.12rem;max-width:75px;line-height:1.3;}
+.vol-arrow{display:flex;flex-direction:column;align-items:center;gap:0.25rem;flex:1;min-width:50px;}
+.vol-line{width:100%;height:1px;background:linear-gradient(to right,var(--bleu),var(--bleu-clair));position:relative;}
+.vol-line::after{content:'✈';position:absolute;right:-4px;top:-11px;font-size:0.9rem;color:var(--bleu-clair);}
+.vol-duration{font-size:0.65rem;color:#BBB;letter-spacing:0.05em;text-align:center;}
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:0.8rem;}
+.detail-cell{background:var(--light-bg);border-radius:10px;padding:0.65rem 0.85rem;}
+.detail-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#CCC;margin-bottom:0.25rem;font-weight:500;}
+.detail-value{font-weight:500;color:var(--fonce);font-size:0.88rem;}
+.detail-value.hl{color:var(--bleu);font-weight:700;}
+.detail-value.or{color:var(--or);font-weight:700;}
+.heberg-card{background:var(--light-bg);border-radius:12px;margin-bottom:0.7rem;overflow:hidden;}
+.heberg-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1rem;cursor:pointer;}
+.heberg-name{font-size:0.92rem;font-weight:600;color:var(--fonce);}
+.heberg-type{font-size:0.68rem;color:var(--mid);margin-top:0.1rem;}
+.heberg-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--bleu);}
+.heberg-ppn{font-size:0.62rem;color:#AAA;text-align:right;}
+.heberg-chevron{font-size:0.9rem;color:#CCC;margin-left:0.5rem;transition:transform 0.2s;}
+.heberg-chevron.open{transform:rotate(90deg);}
+.heberg-body{display:none;padding:0 1rem 0.9rem;}
+.heberg-body.open{display:block;}
+.heberg-link{display:flex;align-items:center;gap:0.65rem;padding:0.8rem 0.9rem;background:white;border-radius:10px;text-decoration:none;color:var(--fonce);font-size:0.86rem;font-weight:500;margin-bottom:0.5rem;}
+.heberg-link-icon{font-size:1rem;}
+.heberg-link-text{flex:1;font-size:0.82rem;color:var(--mid);}
+.heberg-link-arrow{font-size:0.9rem;opacity:0.4;flex-shrink:0;}
+.budget-row{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid var(--light-bg);font-size:0.88rem;}
+.budget-row:last-child{border-bottom:none;}
+.budget-row.total{padding-top:0.9rem;}
+.budget-row.total .budget-label{font-weight:700;color:var(--fonce);font-size:0.92rem;}
+.budget-row.total .budget-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--bleu);}
+.budget-label{color:var(--mid);}
+.budget-val{font-weight:600;color:var(--fonce);}
+.budget-val.highlight{color:var(--bleu);}
+.budget-option{background:var(--light-bg);border-radius:14px;padding:1rem;margin-bottom:0.75rem;}
+.budget-option-title{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bleu);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+.info-block{background:white;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(26,46,64,0.06);margin-bottom:1rem;border:1px solid rgba(42,95,143,0.07);}
+.info-block-header{display:flex;align-items:center;gap:0.85rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--light-bg);}
+.info-block-icon{font-size:1.5rem;flex-shrink:0;}
+.info-block-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--fonce);}
+.info-block-sub{font-size:0.7rem;color:#AAA;margin-top:0.1rem;}
+.info-block-body{padding:1rem 1.2rem;}
+.info-item{display:flex;align-items:flex-start;gap:0.7rem;padding:0.65rem 0;border-bottom:1px solid var(--light-bg);font-size:0.85rem;color:var(--text);line-height:1.55;}
+.info-item:last-child{border-bottom:none;}
+.info-item-icon{font-size:1rem;flex-shrink:0;margin-top:0.1rem;}
+.info-item strong{color:var(--fonce);}
+.meteo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-top:0.75rem;}
+.meteo-cell{background:var(--light-bg);border-radius:10px;padding:0.65rem 0.4rem;text-align:center;}
+.meteo-label{font-size:0.6rem;color:#BBB;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.3rem;}
+.meteo-emoji{font-size:1.1rem;margin-bottom:0.2rem;}
+.meteo-val{font-size:0.85rem;font-weight:600;color:var(--fonce);}
+.activite-item{background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.65rem;}
+.activite-header{display:flex;align-items:flex-start;gap:0.65rem;margin-bottom:0.5rem;}
+.activite-emoji{font-size:1.3rem;flex-shrink:0;}
+.activite-name{font-size:0.9rem;font-weight:600;color:var(--fonce);line-height:1.3;}
+.activite-type{font-size:0.65rem;color:#AAA;margin-top:0.1rem;}
+.activite-desc{font-size:0.81rem;color:#777;line-height:1.6;}
+.tag{display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.55rem;border-radius:100px;margin-left:auto;flex-shrink:0;}
+.tag.nature{background:rgba(58,138,122,0.12);color:var(--turquoise);}
+.tag.culture{background:rgba(42,95,143,0.12);color:var(--bleu);}
+.tag.sport{background:rgba(200,151,58,0.15);color:#9A6E10;}
+.tag.gastro{background:rgba(58,138,122,0.1);color:var(--turquoise);}
+.tag.detente{background:rgba(42,95,143,0.1);color:var(--bleu);}
+.alert-box{padding:0.85rem 1rem;background:#FFF8EE;border-left:3px solid var(--or);border-radius:0 10px 10px 0;font-size:0.82rem;color:#6A5030;display:flex;align-items:flex-start;gap:0.6rem;line-height:1.6;margin-top:0.8rem;}
+.alert-icon{font-size:0.9rem;flex-shrink:0;margin-top:0.2rem;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@media(min-width:768px){
+  :root{--nav-h:64px;}
+  .nav-tab{font-size:0.72rem;flex:none;padding:0 1.1rem;border-bottom-width:3px;}
+  .nav-tab .tab-icon{display:none;}
+  .section-wrap{padding:3.5rem 2rem;max-width:900px;}
+  .meteo-grid{grid-template-columns:repeat(8,1fr);}
+}
+</style>
+
+<nav>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('accueil',this)"><span class="tab-icon">🏠</span><span class="tab-label">Accueil</span></button>
+    <button class="nav-tab" onclick="showPage('sardaigne',this)"><span class="tab-icon">🏝️</span><span class="tab-label">Sardaigne</span></button>
+    <button class="nav-tab" onclick="showPage('montenegro',this)"><span class="tab-icon">⛵</span><span class="tab-label">Monténégro</span></button>
+    <button class="nav-tab" onclick="showPage('rhodes',this)"><span class="tab-icon">🌊</span><span class="tab-label">Rhodes</span></button>
+    <button class="nav-tab" onclick="showPage('malte',this)"><span class="tab-icon">☀️</span><span class="tab-label">Malte</span></button>
+  </div>
+</nav>
+
+<!-- ACCUEIL -->
+<div id="page-accueil" class="page active">
+  <div class="hero-content" style="background:var(--fonce);">
+    <div class="hero-eyebrow">Été 2026 · Comparatif 4 destinations ✨</div>
+    <h1 class="hero-title">Où <em>partir</em><br>cet été ?</h1>
+    <p class="hero-subtitle">4 destinations méditerranéennes · 1 choix à faire</p>
+    <div class="hero-dates"><div class="date-pill"><span>1 août 2026</span><span class="sep">—</span><span>8 août 2026</span></div></div>
+  </div>
+  <div class="dest-grid">
+    <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,244,248,0.4);text-align:center;padding-bottom:0.25rem;">Cliquez sur une destination pour explorer</div>
+    <div class="dest-card-mini" onclick="goToDest('sardaigne',1)">
+      <div class="dest-card-mini-left"><span class="dest-flag">🇮🇹</span><div><div class="dest-card-mini-name">Sardaigne</div><div class="dest-card-mini-sub">Cagliari · Italie</div></div></div>
+      <div style="display:flex;align-items:center;"><div style="text-align:right;"><div class="dest-card-mini-total">999 €</div><div class="dest-card-mini-label">total estimé</div></div><div class="dest-card-mini-arrow">›</div></div>
+    </div>
+    <div class="dest-card-mini" onclick="goToDest('montenegro',2)" style="background:rgba(58,138,122,0.12);border-color:rgba(58,138,122,0.3);">
+      <div class="dest-card-mini-left"><span class="dest-flag">🇲🇪</span><div><div class="dest-card-mini-name">Monténégro <span style="background:var(--turquoise);color:white;font-size:0.56rem;padding:0.1rem 0.4rem;border-radius:100px;margin-left:0.3rem;font-weight:700;">MOINS CHER</span></div><div class="dest-card-mini-sub">Tivat → Budva</div></div></div>
+      <div style="display:flex;align-items:center;"><div style="text-align:right;"><div class="dest-card-mini-total" style="color:#7EC8E3;">718 €</div><div class="dest-card-mini-label">total estimé</div></div><div class="dest-card-mini-arrow">›</div></div>
+    </div>
+    <div class="dest-card-mini" onclick="goToDest('rhodes',3)">
+      <div class="dest-card-mini-left"><span class="dest-flag">🇬🇷</span><div><div class="dest-card-mini-name">Rhodes</div><div class="dest-card-mini-sub">Rhodes · Grèce</div></div></div>
+      <div style="display:flex;align-items:center;"><div style="text-align:right;"><div class="dest-card-mini-total">881 €</div><div class="dest-card-mini-label">total estimé</div></div><div class="dest-card-mini-arrow">›</div></div>
+    </div>
+    <div class="dest-card-mini" onclick="goToDest('malte',4)">
+      <div class="dest-card-mini-left"><span class="dest-flag">🇲🇹</span><div><div class="dest-card-mini-name">Malte</div><div class="dest-card-mini-sub">La Valette · St Julian's</div></div></div>
+      <div style="display:flex;align-items:center;"><div style="text-align:right;"><div class="dest-card-mini-total">1 173 €</div><div class="dest-card-mini-label">total estimé</div></div><div class="dest-card-mini-arrow">›</div></div>
+    </div>
+    <!-- Tableau comparatif -->
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;margin-top:0.5rem;">
+      <div style="padding:0.9rem 1.1rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,244,248,0.45);margin-bottom:0.25rem;">Comparatif rapide</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#EEF4F8;font-weight:600;">Vue d'ensemble des coûts · 2 pers. · 7 nuits</div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+          <thead><tr>
+            <th style="padding:0.6rem 0.9rem;text-align:left;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Destination</th>
+            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Vols</th>
+            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Voiture</th>
+            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Total</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;border-bottom:1px solid rgba(255,255,255,0.06);">🇮🇹 Sardaigne</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">242 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">259 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">999 €</td></tr>
+            <tr style="background:rgba(58,138,122,0.1);"><td style="padding:0.65rem 0.9rem;color:#EEF4F8;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">🇲🇪 Monténégro ✦</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">530 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">252 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:#7EC8E3;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">718 €</td></tr>
+            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;border-bottom:1px solid rgba(255,255,255,0.06);">🇬🇷 Rhodes</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">425 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">194 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">881 €</td></tr>
+            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;">🇲🇹 Malte</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);">257 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);">70 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;">1 173 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="font-size:0.68rem;color:rgba(238,244,248,0.3);text-align:center;padding:0.5rem 0 1.5rem;line-height:1.7;">Tarifs relevés le 16 juin 2026 · 2 personnes · 7 nuits<br>Vols + voiture + hébergement (option hôtel) · ✦ Prix le plus bas</div>
+  </div>
+</div>
+
+<!-- ========== SARDAIGNE ========== -->
+<div id="page-sardaigne" class="page dest-page">
+  <div class="section-wrap">
+    <div class="section-header"><div class="section-tag">🇮🇹 Italie · Cagliari</div><h2 class="section-title">Sardaigne</h2></div>
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="showSub('sardaigne','proposition',this)"><span class="sub-tab-icon">💶</span><span>Proposition</span></button>
+      <button class="sub-tab" onclick="showSub('sardaigne','vie',this)"><span class="sub-tab-icon">🌊</span><span>Vie sur place</span></button>
+    </div>
+    <!-- PROPOSITION -->
+    <div id="sardaigne-proposition" class="sub-content active">
+      <div class="prop-block">
+        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">Paris CDG ↔ Cagliari · 2 personnes</div></div><div class="prop-block-badge">242 €</div></div>
+        <div class="prop-block-body">
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">10:55</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">CAG</div><div class="vol-time">13:05</div><div class="vol-city-name">Cagliari</div></div></div>
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">CAG</div><div class="vol-time">13:30</div><div class="vol-city-name">Cagliari</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">15:50</div><div class="vol-city-name">Paris CDG</div></div></div>
+          <div class="details-grid">
+            <div class="detail-cell"><div class="detail-label">Prix vols</div><div class="detail-value hl">242 € / 2 pers.</div></div>
+            <div class="detail-cell"><div class="detail-label">Location voiture</div><div class="detail-value hl">≈ 259 € / sem.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour accéder au lien</div></div></div>
+        <div class="prop-block-body">
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hôtel Arcipelago 37</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Cagliari</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">924 €</div><div class="heberg-ppn">≈ 132 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/it/arcipelago-37.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Cagliari</div><div class="heberg-type">Appartement entier · Cagliari</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">837 €</div><div class="heberg-ppn">≈ 120 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/775174448860445134" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total estimé</div><div class="prop-block-sub">2 personnes · 7 nuits</div></div></div>
+        <div class="prop-block-body">
+          <div class="budget-option"><div class="budget-option-title">🏨 Option Hôtel + PDJ</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">242 €</span></div><div class="budget-row"><span class="budget-label">Hôtel Arcipelago 37</span><span class="budget-val">924 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 259 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 425 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 713 €/personne</div></div>
+          <div class="budget-option"><div class="budget-option-title">🏠 Option Airbnb</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">242 €</span></div><div class="budget-row"><span class="budget-label">Airbnb</span><span class="budget-val">837 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 259 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 338 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 669 €/personne</div></div>
+          <div class="alert-box"><span class="alert-icon">💡</span><span>Coût total suggéré dans votre tableau : <strong>999 €</strong> (≈ 143 €/nuit). La voiture est indispensable pour accéder aux plus belles plages du sud de l'île.</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- VIE SUR PLACE -->
+    <div id="sardaigne-vie" class="sub-content">
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Cagliari</div><div class="info-block-sub">Sud de la Sardaigne · Méditerranée</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">32°C</div></div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">22°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">25°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">11h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août est chaud et très sec. Le vent Maestrale peut souffler quelques jours, rafraîchissant agréablement. Mer idéale pour la baignade. Quasi aucune pluie.</div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏝️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">La perle de la Méditerranée</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Île italienne au cœur de la Méditerranée. <strong>Cagliari</strong>, la capitale, est une ville animée avec un centre historique perché sur une colline.</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Réputée pour ses <strong>eaux turquoise cristallines</strong> et ses plages de sable blanc parmi les plus belles d'Europe (Villasimius, Costa Rei, Chia).</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span>La voiture est <strong>indispensable</strong> — transports en commun vers les plages quasi inexistants. Routes belles et peu chargées en dehors des axes principaux.</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Riche patrimoine archéologique : sites <strong>nuragiques</strong> (constructions en pierre uniques au monde), tours génoises, villages médiévaux.</span></div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Autour de Cagliari · Sud de l'île</div></div></div><div class="info-block-body">
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏖️</span><div><div class="activite-name">Plages du Sud — Villasimius & Costa Rei</div><div class="activite-type">40–60 min de Cagliari</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Eaux turquoise, sable blanc fin, criques sauvages. Villasimius est LA destination plage du sud. Costa Rei offre des kilomètres de sable quasi désert. Arrivez tôt en août pour trouver de la place.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Cagliari historique — Quartier Castello</div><div class="activite-type">Sur place</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Le vieux Cagliari perché sur une colline avec tour pisan, cathédrale et panorama exceptionnel sur la baie et les étangs à flamants roses. À visiter en fin d'après-midi pour la lumière dorée.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦩</span><div><div class="activite-name">Étang de Molentargius — Flamants roses</div><div class="activite-type">5 min de Cagliari</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Parc naturel abritant des milliers de flamants roses. Balade à pied ou à vélo dans un paysage insolite entre mer et ville. Gratuit et magique en soirée.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🤿</span><div><div class="activite-name">Snorkeling & plongée</div><div class="activite-type">Villasimius / Chia</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Les eaux du sud sont d'une transparence exceptionnelle. Excursions en bateau depuis Villasimius vers des zones marines protégées. Posidonies, mérous, murènes.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍷</span><div><div class="activite-name">Gastronomie sarde</div><div class="activite-type">Restaurants locaux</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Bottarga, culurgiones (raviolis sardes), porceddu (cochon de lait rôti), fromage Pecorino Sardo, vin Vermentino blanc. Une cuisine unique, rustique et délicieuse.</div></div>
+      </div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Roaming UE inclus. Cartes acceptées partout sauf marchés de plage.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Voiture :</strong> Réservez impérativement à l'avance en août — les loueurs affichent complet. Permis EU valide.</span></div><div class="info-item"><span class="info-item-icon">🏖️</span><span><strong>Plages :</strong> Certaines très fréquentées facturent un droit d'accès ou de stationnement (2–5 €) en haute saison.</span></div><div class="info-item"><span class="info-item-icon">🌿</span><span><strong>Sable protégé :</strong> Interdiction formelle de prélever du sable ou des galets des plages protégées — amende jusqu'à 3 000 €.</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MONTÉNÉGRO ========== -->
+<div id="page-montenegro" class="page dest-page">
+  <div class="section-wrap">
+    <div class="section-header"><div class="section-tag">🇲🇪 Monténégro · Budva</div><h2 class="section-title">Monténégro</h2></div>
+    <div style="background:rgba(58,138,122,0.1);border:1px solid rgba(58,138,122,0.2);border-radius:14px;padding:0.85rem 1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.65rem;font-size:0.85rem;color:var(--turquoise);font-weight:500;">
+      <span style="font-size:1.2rem;">🏆</span> Destination la moins chère du comparatif — 718 €
+    </div>
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="showSub('montenegro','proposition',this)"><span class="sub-tab-icon">💶</span><span>Proposition</span></button>
+      <button class="sub-tab" onclick="showSub('montenegro','vie',this)"><span class="sub-tab-icon">🌊</span><span>Vie sur place</span></button>
+    </div>
+    <!-- PROPOSITION -->
+    <div id="montenegro-proposition" class="sub-content active">
+      <div class="prop-block">
+        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">Paris CDG ↔ Tivat (Budva) · 2 personnes</div></div><div class="prop-block-badge">530 €</div></div>
+        <div class="prop-block-body">
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">07:20</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">TIV</div><div class="vol-time">09:50</div><div class="vol-city-name">Tivat</div></div></div>
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">TIV</div><div class="vol-time">10:35</div><div class="vol-city-name">Tivat</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">13:10</div><div class="vol-city-name">Paris CDG</div></div></div>
+          <div class="details-grid">
+            <div class="detail-cell"><div class="detail-label">Prix vols</div><div class="detail-value hl">530 € / 2 pers.</div></div>
+            <div class="detail-cell"><div class="detail-label">Location voiture</div><div class="detail-value hl">≈ 252 € / sem.</div></div>
+            <div class="detail-cell"><div class="detail-label">Ville de séjour</div><div class="detail-value">Budva</div></div>
+            <div class="detail-cell"><div class="detail-label">Aéroport arrivée</div><div class="detail-value">Tivat (TIV)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour accéder au lien</div></div></div>
+        <div class="prop-block-body">
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hôtel Grbalj</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Budva</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">803 €</div><div class="heberg-ppn">≈ 115 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/me/grbalj.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Budva</div><div class="heberg-type">Appartement entier · Budva</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">769 €</div><div class="heberg-ppn">≈ 110 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/1390407460293945585" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total estimé</div><div class="prop-block-sub">2 personnes · 7 nuits</div></div></div>
+        <div class="prop-block-body">
+          <div class="budget-option"><div class="budget-option-title" style="color:var(--turquoise);">🏨 Option Hôtel + PDJ</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">530 €</span></div><div class="budget-row"><span class="budget-label">Hôtel Grbalj</span><span class="budget-val">803 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 252 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 585 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 793 €/personne</div></div>
+          <div class="budget-option"><div class="budget-option-title">🏠 Option Airbnb</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">530 €</span></div><div class="budget-row"><span class="budget-label">Airbnb Budva</span><span class="budget-val">769 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 252 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 551 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 776 €/personne</div></div>
+          <div class="alert-box"><span class="alert-icon">💡</span><span>Coût total suggéré dans votre tableau : <strong>718 €</strong> (≈ 103 €/nuit). <strong>Destination la moins chère !</strong> Les prix sur place (restaurants, activités) sont aussi bien inférieurs à l'Europe Ouest.</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- VIE SUR PLACE -->
+    <div id="montenegro-vie" class="sub-content">
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Budva</div><div class="info-block-sub">Côte Adriatique monténégrine</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">30°C</div></div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">21°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">25°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">10h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août chaud, sec et ensoleillé. Moins étouffant que la Sardaigne ou Malte. Mer Adriatique à température idéale. Quelques orages orageux possibles en fin de mois — spectaculaires sur les montagnes.</div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">⛰️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">La perle cachée des Balkans</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span><strong>Budva</strong> est la capitale touristique du Monténégro avec une vieille ville médiévale fortifiée donnant directement sur la mer Adriatique.</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Côte découpée avec plages de galets et de sable, baies cachées, eaux cristallines. Moins fréquenté et moins cher que la Grèce ou l'Italie.</span></div><div class="info-item"><span class="info-item-icon">💰</span><span>Prix <strong>significativement plus bas</strong> qu'en Europe occidentale : repas, activités, sorties. Excellent rapport qualité/prix pour un pays d'une beauté exceptionnelle.</span></div><div class="info-item"><span class="info-item-icon">🏔️</span><span>Paysages spectaculaires : fjord de <strong>Kotor</strong> (UNESCO), montagnes de Lovćen, lac de Skadar — tout à portée de voiture.</span></div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Côte Adriatique & arrière-pays</div></div></div><div class="info-block-body">
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Kotor & sa Baie — Classé UNESCO</div><div class="activite-type">30 min de Budva</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">L'un des joyaux de la Méditerranée. Baie en forme de fjord entourée de montagnes vertigineuses. Vieille ville médiévale de Kotor, ses remparts et ses fameux chats. Vue imprenable depuis les fortifications.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏖️</span><div><div class="activite-name">Sveti Stefan & Riviera monténégrine</div><div class="activite-type">10–20 min de Budva</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">L'île-hôtel de Sveti Stefan est l'icône absolue du Monténégro (vue libre depuis la plage). La riviera regorge de criques magnifiques : Jaz Beach, Mogren, Pržno, Bečići.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">⛵</span><div><div class="activite-name">Excursions en bateau</div><div class="activite-type">Port de Budva</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Nombreuses excursions : îles Notre-Dame-du-Rocher et Saint-Georges dans la baie de Kotor, grotte bleue, snorkeling. Env. 20–30 €/pers. pour une demi-journée.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦅</span><div><div class="activite-name">Parc national du Lovćen</div><div class="activite-type">45 min de Budva</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Vue à 360° sur la baie de Kotor et les Balkans depuis 1749m d'altitude. Un panorama renversant depuis le mausolée du prince-poète Njegoš. Route de montagne vertigineuse mais magnifique.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍽️</span><div><div class="activite-name">Gastronomie balkanique</div><div class="activite-type">Restaurants de Budva</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Ćevapi, pljeskavica, poisson frais de l'Adriatique, fromage Njeguški et prosciutto local. Repas complet pour 15–20 €/pers. Vins locaux (Vranac rouge, Krstač blanc) excellents et peu chers.</div></div>
+      </div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro (même hors UE). Cartes acceptées dans les hôtels et restaurants touristiques. Avoir du liquide pour marchés et petits commerces.</span></div><div class="info-item"><span class="info-item-icon">🛂</span><span><strong>Frontières :</strong> Hors UE mais pas de visa pour Français (90 j). Passeport ou CNI valide. <strong>Pas de roaming européen</strong> — vérifiez votre opérateur ou achetez une SIM locale.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Voiture :</strong> La carte verte (assurance internationale) est généralement requise — vérifiez avec le loueur. Routes côtières parfois étroites et sinueuses mais belles.</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== RHODES ========== -->
+<div id="page-rhodes" class="page dest-page">
+  <div class="section-wrap">
+    <div class="section-header"><div class="section-tag">🇬🇷 Grèce · Dodécanèse</div><h2 class="section-title">Rhodes</h2></div>
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="showSub('rhodes','proposition',this)"><span class="sub-tab-icon">💶</span><span>Proposition</span></button>
+      <button class="sub-tab" onclick="showSub('rhodes','vie',this)"><span class="sub-tab-icon">🌊</span><span>Vie sur place</span></button>
+    </div>
+    <!-- PROPOSITION -->
+    <div id="rhodes-proposition" class="sub-content active">
+      <div class="prop-block">
+        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">Paris CDG ↔ Rhodes · 2 personnes</div></div><div class="prop-block-badge">425 €</div></div>
+        <div class="prop-block-body">
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">07:15</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">RHO</div><div class="vol-time">11:55</div><div class="vol-city-name">Rhodes</div></div></div>
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">RHO</div><div class="vol-time">12:50</div><div class="vol-city-name">Rhodes</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">15:45</div><div class="vol-city-name">Paris CDG</div></div></div>
+          <div class="details-grid">
+            <div class="detail-cell"><div class="detail-label">Prix vols</div><div class="detail-value hl">425 € / 2 pers.</div></div>
+            <div class="detail-cell"><div class="detail-label">Location voiture</div><div class="detail-value hl">≈ 194 € / sem. ✦</div></div>
+          </div>
+          <div class="alert-box"><span class="alert-icon">✦</span><span>Voiture la <strong>moins chère</strong> du comparatif (194 €) — idéal pour explorer le sud de l'île (Lindos, Prasonisi).</span></div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour accéder au lien</div></div></div>
+        <div class="prop-block-body">
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hotel International</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Rhodes</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">772 €</div><div class="heberg-ppn">≈ 110 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/gr/international.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Rhodes</div><div class="heberg-type">Appartement entier · Rhodes</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">810 €</div><div class="heberg-ppn">≈ 116 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/27721782" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total estimé</div><div class="prop-block-sub">2 personnes · 7 nuits</div></div></div>
+        <div class="prop-block-body">
+          <div class="budget-option"><div class="budget-option-title">🏨 Option Hôtel + PDJ</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">425 €</span></div><div class="budget-row"><span class="budget-label">Hotel International</span><span class="budget-val">772 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 194 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 391 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 696 €/personne</div></div>
+          <div class="budget-option"><div class="budget-option-title">🏠 Option Airbnb</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">425 €</span></div><div class="budget-row"><span class="budget-label">Airbnb Rhodes</span><span class="budget-val">810 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 194 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 429 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 715 €/personne</div></div>
+          <div class="alert-box"><span class="alert-icon">💡</span><span>Coût total suggéré dans votre tableau : <strong>881 €</strong> (≈ 126 €/nuit). Zone UE — facilité pour les démarches et le roaming téléphonique.</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- VIE SUR PLACE -->
+    <div id="rhodes-vie" class="sub-content">
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Rhodes</div><div class="info-block-sub">Île du Dodécanèse · Mer Égée</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">33°C</div></div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">24°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">26°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">12h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août = mois le plus chaud et le plus ensoleillé. Le vent Meltemi (vent du nord) souffle régulièrement — rafraîchissant mais peut perturber les excursions en bateau. Quasi aucune pluie.</div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏛️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">L'île des Chevaliers</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Île grecque à la frontière de la Turquie. <strong>La ville de Rhodes</strong> possède l'une des plus belles villes médiévales fortifiées du monde (UNESCO).</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Côte ouest plus venteuse (Meltemi), côte est plus calme. <strong>Plus belles plages</strong> au sud de l'île : Prasonisi, Lindos, Agios Pavlos.</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Histoire fascinante : Chevaliers de Saint-Jean, site du Colosse (7e merveille du monde), Acropole de Lindos perchée au-dessus de la mer turquoise.</span></div><div class="info-item"><span class="info-item-icon">🇪🇺</span><span>Zone UE — roaming téléphonique inclus, euro, pas de formalités douanières, carte vitale valide.</span></div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Ville de Rhodes & toute l'île</div></div></div><div class="info-block-body">
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Vieille Ville médiévale de Rhodes</div><div class="activite-type">Au cœur de la ville</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">La vieille ville la mieux préservée d'Europe médiévale, classée UNESCO. Palais des Grands Maîtres, Rue des Chevaliers, bazars, ruelles ottomanes. Magique en soirée sous les lumières dorées.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏛️</span><div><div class="activite-name">Acropole & Village de Lindos</div><div class="activite-type">50 km de la ville</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Village blanc emblématique perché avec une acropole antique dominant une mer turquoise à couper le souffle. L'une des images les plus iconiques de Grèce. Évitez les heures les plus chaudes.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏄</span><div><div class="activite-name">Prasonisi — Pointe sud, kitesurf</div><div class="activite-type">85 km de la ville</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">La pointe extrême sud où se rejoignent mer Égée et Méditerranée. Plage mythique pour kitesurf et windsurf (côté ouest) et baignade calme (côté est). Paysage spectaculaire en fin de journée.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦋</span><div><div class="activite-name">Vallée des Papillons</div><div class="activite-type">25 km de la ville</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Gorge luxuriante abritant des milliers de papillons en été. Fraîcheur et sérénité dans ce canyon verdoyant — une pause précieuse lors des fortes chaleurs d'août.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍷</span><div><div class="activite-name">Gastronomie grecque</div><div class="activite-type">Tavernes locales</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Mézés, moussaka, souvlaki, poulpe séché, feta, vins locaux (Muscat de Rhodes). Les tavernes dans les ruelles de la vieille ville offrent une cuisine authentique. Réservez les bonnes en avance.</div></div>
+      </div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Zone UE, roaming inclus. Cartes acceptées partout. Carte vitale valide.</span></div><div class="info-item"><span class="info-item-icon">🌬️</span><span><strong>Vent Meltemi :</strong> Fort vent du nord pouvant souffler plusieurs jours consécutifs. Rafraîchissant mais peut perturber les excursions en mer.</span></div><div class="info-item"><span class="info-item-icon">⚡</span><span><strong>Haute saison :</strong> Août = plein été grec. Réservez restaurants populaires et excursions à l'avance. Visitez les sites tôt le matin.</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MALTE ========== -->
+<div id="page-malte" class="page dest-page">
+  <div class="section-wrap">
+    <div class="section-header"><div class="section-tag">🇲🇹 Malte · La Valette</div><h2 class="section-title">Malte</h2></div>
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="showSub('malte','proposition',this)"><span class="sub-tab-icon">💶</span><span>Proposition</span></button>
+      <button class="sub-tab" onclick="showSub('malte','vie',this)"><span class="sub-tab-icon">🌊</span><span>Vie sur place</span></button>
+    </div>
+    <!-- PROPOSITION -->
+    <div id="malte-proposition" class="sub-content active">
+      <div class="prop-block">
+        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">Paris CDG ↔ Malte · 2 personnes</div></div><div class="prop-block-badge">257 €</div></div>
+        <div class="prop-block-body">
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">20:55</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · soir du 1 août</div></div><div class="vol-city"><div class="vol-code">MLA</div><div class="vol-time">23:35</div><div class="vol-city-name">La Valette</div></div></div>
+          <div class="vol-route"><div class="vol-city"><div class="vol-code">MLA</div><div class="vol-time">13:45</div><div class="vol-city-name">La Valette</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">16:40</div><div class="vol-city-name">Paris CDG</div></div></div>
+          <div class="details-grid">
+            <div class="detail-cell"><div class="detail-label">Prix vols</div><div class="detail-value hl">257 € / 2 pers.</div></div>
+            <div class="detail-cell"><div class="detail-label">Location voiture</div><div class="detail-value hl">≈ 70 € / sem. ✦</div></div>
+            <div class="detail-cell"><div class="detail-label">Ville de séjour</div><div class="detail-value">St Julian's</div></div>
+            <div class="detail-cell"><div class="detail-label">Arrivée aller</div><div class="detail-value or">Vol de nuit 23h35</div></div>
+          </div>
+          <div class="alert-box"><span class="alert-icon">⚠️</span><span>Vol aller <strong>de nuit</strong> (arrivée 23h35). Prévoyez le transport depuis l'aéroport et l'hébergement dès la nuit du 1er août. Voiture la moins chère du comparatif avec Rhodes.</span></div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header or"><div><div class="prop-block-title">🏠 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options Airbnb · cliquez pour accéder</div></div></div>
+        <div class="prop-block-body">
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏊 Airbnb avec piscine · St Julian's</div><div class="heberg-type">Appartement avec piscine · St Julian's</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">1 067 €</div><div class="heberg-ppn">≈ 152 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/51631675" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb (avec piscine)</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+          <div class="heberg-card">
+            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb standard · Malte</div><div class="heberg-type">Appartement entier · Malte</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">745 €</div><div class="heberg-ppn">≈ 106 €/nuit</div></div><div class="heberg-chevron">›</div></div></div>
+            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/1607488326019602271" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="prop-block">
+        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total estimé</div><div class="prop-block-sub">2 personnes · 7 nuits</div></div></div>
+        <div class="prop-block-body">
+          <div class="budget-option"><div class="budget-option-title">🏊 Option Airbnb avec piscine</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">257 €</span></div><div class="budget-row"><span class="budget-label">Airbnb piscine</span><span class="budget-val">1 067 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 70 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 394 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 697 €/personne</div></div>
+          <div class="budget-option"><div class="budget-option-title">🏠 Option Airbnb standard</div><div class="budget-row"><span class="budget-label">Vols (2 pers.)</span><span class="budget-val">257 €</span></div><div class="budget-row"><span class="budget-label">Airbnb standard</span><span class="budget-val">745 €</span></div><div class="budget-row"><span class="budget-label">Location voiture</span><span class="budget-val">≈ 70 €</span></div><div class="budget-row total"><span class="budget-label">Total estimé</span><span class="budget-val highlight">≈ 1 072 €</span></div><div style="text-align:right;font-size:0.75rem;color:var(--mid);margin-top:0.25rem;">soit ≈ 536 €/personne</div></div>
+          <div class="alert-box"><span class="alert-icon">💡</span><span>Coût total suggéré dans votre tableau : <strong>1 173 €</strong> (≈ 168 €/nuit — le plus cher). Mais vols (257 €) et voiture (70 €) sont les moins chers ! C'est l'hébergement qui tire le budget vers le haut.</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- VIE SUR PLACE -->
+    <div id="malte-vie" class="sub-content">
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Malte</div><div class="info-block-sub">Archipel maltais · Méditerranée centrale</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">🔥</div><div class="meteo-val">34°C</div></div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">24°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">27°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">12h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août est le mois le plus chaud — parfois très éprouvant. Mer à 27°C, la plus chaude du comparatif ! Quasi aucune pluie. Les pierres blanches de l'île réverbèrent fortement la chaleur.</div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏛️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">L'île des Chevaliers de l'Ordre de Malte</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Archipel de 3 îles au cœur de la Méditerranée. <strong>La Valette</strong> (capitale UNESCO), <strong>Gozo</strong> (île verdoyante) et <strong>Comino</strong> (Lagon Bleu). L'île principale ne fait que 27 km de long.</span></div><div class="info-item"><span class="info-item-icon">🇬🇧</span><span>Anglais et maltais officiels — idéal pour les anglophones. <strong>Conduite à gauche</strong> (ancienne colonie britannique).</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Histoire de <strong>7 000 ans</strong> : temples mégalithiques (plus anciens que Stonehenge), catacombes, 3 sites UNESCO, bastions des Chevaliers.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span>Voiture pratique mais bus publics (1,50 €/trajet) couvrent toute l'île. Ferry vers Gozo (6 €) incontournable.</span></div></div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Malte, Gozo & Comino</div></div></div><div class="info-block-body">
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">💎</span><div><div class="activite-name">Lagon Bleu de Comino</div><div class="activite-type">Traversée en ferry 25 min</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">L'eau la plus turquoise et transparente de Méditerranée. Incontournable MAIS très fréquenté en août — arrivez avant 9h pour la magie. Des opérateurs proposent des excursions en bateau avec snorkeling.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">La Valette — Capitale UNESCO</div><div class="activite-type">Centre de l'île principale</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Capitale baroque entièrement classée UNESCO. Co-Cathédrale Saint-Jean avec toiles de Caravage, bastions spectaculaires, jardins Barrakka avec vue sur le Grand Port. Ville piétonne et très vivante.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🤿</span><div><div class="activite-name">Plongée — Épaves & grottes marines</div><div class="activite-type">Toute l'île</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Malte est l'une des meilleures destinations de plongée en Europe. Épaves de la 2e GM, grottes sous-marines, visibilité exceptionnelle. Nombreux centres à St Julian's. Idéal même pour débutants.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏛️</span><div><div class="activite-name">Temples de Ġgantija — Gozo</div><div class="activite-type">Île de Gozo (ferry 25 min)</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Les temples les plus anciens du monde (3600 av. J.-C.) — plus vieux que les pyramides d'Égypte et Stonehenge. Gozo est une île plus verte et authentique. Une journée entière mérite d'y être consacrée.</div></div>
+        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍻</span><div><div class="activite-name">St Julian's & Paceville — Vie nocturne</div><div class="activite-type">Quartier de St Julian's</div></div><span class="tag detente">Détente</span></div><div class="activite-desc">Malte a l'une des meilleures vies nocturnes de Méditerranée. Bars, clubs et restaurants ouverts jusqu'à l'aube. Le quartier de Paceville est le centre de l'animation estivale.</div></div>
+      </div></div>
+      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Conduite à gauche !</strong> Ancienne colonie britannique. Prenez le temps de vous adapter avant de prendre le volant. Routes souvent étroites et encombrées en août.</span></div><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Zone UE, roaming inclus, carte vitale valide. Légèrement plus cher que la moyenne méditerranéenne en haute saison.</span></div><div class="info-item"><span class="info-item-icon">⛴️</span><span><strong>Ferry Gozo :</strong> 25 min depuis Ċirkewwa, toutes les 45 min. Indispensable pour Gozo. Réservez à l'avance en août.</span></div><div class="info-item"><span class="info-item-icon">☀️</span><span><strong>Chaleur :</strong> Très intense en août. Crème solaire haute protection obligatoire. Prévoyez une bouteille d'eau partout avec vous.</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(name, btn) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+function goToDest(name, idx) {
+  const tab = document.querySelectorAll('.nav-tab')[idx];
+  showPage(name, tab);
+}
+function showSub(dest, name, btn) {
+  document.querySelectorAll('#page-'+dest+' .sub-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('#page-'+dest+' .sub-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(dest+'-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleHeberg(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.heberg-chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+</script>
+</body>
+</html>
