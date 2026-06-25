@@ -2,620 +2,1008 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Voyage Eté 2026 • 1–8 août</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Été 2026 · Où partir ?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bleu:#2A5F8F; --bleu-clair:#4A8ABF; --or:#C8973A; --sable:#F5EDE0;
-  --fonce:#1A2E40; --turquoise:#3A8A7A; --creme:#FDFAF5; --mid:#6A7A8A;
-  --text:#2E3A45; --light-bg:#F0F5F8; --nav-h:60px;
+  --bleu:#1B3A5C; --or:#C8973A; --creme:#FDFAF5; --fonce:#0E1F30;
+  --turquoise:#2D7A72; --sable:#F0EAE0; --mid:#7A8A95; --text:#2A3540;
+  --light:#EDF2F5; --nav-h:60px; --rouge:#C0392B;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden;font-size:16px;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,245,0.97);backdrop-filter:blur(20px);height:var(--nav-h);border-bottom:1px solid rgba(42,95,143,0.15);box-shadow:0 2px 16px rgba(26,46,64,0.08);display:flex;align-items:stretch;}
-.nav-tabs{display:flex;width:100%;}
-.nav-tab{flex:1;background:none;border:none;border-bottom:2.5px solid transparent;color:rgba(46,58,69,0.38);font-family:'Jost',sans-serif;font-size:0.54rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.18rem;padding:0.3rem 0.1rem 0.2rem;transition:all 0.2s;}
-.nav-tab .tab-icon{font-size:1.2rem;line-height:1;}
-.nav-tab .tab-label{line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
-.nav-tab:hover{color:var(--bleu);}
-.nav-tab.active{color:var(--bleu);border-bottom-color:var(--bleu);}
-.page{display:none;min-height:100vh;padding-top:var(--nav-h);padding-bottom:3rem;}
+body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(14,31,48,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,151,58,0.2);display:flex;align-items:stretch;}
+.nav-inner{display:flex;width:100%;max-width:900px;margin:0 auto;}
+.nav-tab{flex:1;background:none;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.15rem;padding:0.2rem 0.1rem;transition:all 0.2s;}
+.nav-tab .ti{font-size:1.1rem;line-height:1;}
+.nav-tab .tl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.nav-tab:hover{color:rgba(255,255,255,0.7);}
+.nav-tab.active{color:var(--or);border-bottom-color:var(--or);}
+
+/* PAGES */
+.page{display:none;min-height:100vh;padding-top:var(--nav-h);}
 .page.active{display:block;}
-#page-accueil{background:var(--fonce);padding-bottom:0;min-height:auto;}
-.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.5rem 1.5rem 2rem;}
-.hero-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--or);margin-bottom:0.7rem;font-weight:500;opacity:0;animation:fadeUp 0.8s 0.3s forwards;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,13vw,5.5rem);font-weight:600;color:#EEF4F8;line-height:0.92;margin-bottom:0.8rem;opacity:0;animation:fadeUp 0.9s 0.5s forwards;}
-.hero-title em{color:#7EC8E3;font-style:italic;}
-.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.5vw,1.25rem);color:rgba(238,244,248,0.7);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s 0.7s forwards;}
-.hero-dates{opacity:0;animation:fadeUp 0.9s 0.9s forwards;}
-.date-pill{display:inline-flex;align-items:center;gap:0.75rem;background:var(--bleu);color:white;padding:0.72rem 1.7rem;border-radius:100px;font-size:0.9rem;font-weight:500;letter-spacing:0.05em;}
-.date-pill .sep{opacity:0.5;}
-.dest-grid{padding:1.5rem 1rem 1rem;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem;}
-.dest-card-mini{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all 0.2s;}
-.dest-card-mini:hover{background:rgba(255,255,255,0.11);}
-.dest-card-mini-left{display:flex;align-items:center;gap:1rem;}
-.dest-flag{font-size:1.8rem;}
-.dest-card-mini-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:#EEF4F8;line-height:1.1;}
-.dest-card-mini-sub{font-size:0.72rem;color:rgba(238,244,248,0.5);margin-top:0.15rem;}
-.dest-card-mini-total{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--or);}
-.dest-card-mini-label{font-size:0.6rem;color:rgba(238,244,248,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.1rem;}
-.dest-card-mini-arrow{color:rgba(238,244,248,0.3);font-size:1.2rem;margin-left:0.75rem;}
-.section-wrap{max-width:680px;margin:0 auto;padding:1.8rem 1rem 1rem;}
-.section-header{margin-bottom:1.75rem;text-align:center;}
-.section-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--bleu);margin-bottom:0.45rem;font-weight:500;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6vw,2.6rem);color:var(--fonce);line-height:1.1;font-weight:600;}
-.dest-page{background:var(--light-bg);}
-.sub-tabs{display:flex;background:white;border-radius:14px;padding:0.3rem;margin-bottom:1.5rem;box-shadow:0 1px 8px rgba(26,46,64,0.07);gap:0.25rem;}
-.sub-tab{flex:1;background:none;border:none;border-radius:8px;padding:0.55rem 0.2rem;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--mid);cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:0.15rem;}
-.sub-tab .sub-tab-icon{font-size:0.95rem;}
-.sub-tab.active{background:var(--bleu);color:white;}
-.sub-tab:hover:not(.active){background:var(--light-bg);color:var(--bleu);}
-.sub-content{display:none;}
-.sub-content.active{display:block;}
-.prop-block{background:white;border-radius:18px;overflow:hidden;box-shadow:0 2px 14px rgba(26,46,64,0.07);margin-bottom:1.1rem;border:1px solid rgba(42,95,143,0.07);}
-.prop-block-header{padding:1rem 1.2rem;background:var(--bleu);color:white;display:flex;align-items:center;justify-content:space-between;}
-.prop-block-header.or{background:var(--or);}
-.prop-block-header.turquoise{background:var(--turquoise);}
-.prop-block-header.fonce{background:var(--fonce);}
-.prop-block-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;}
-.prop-block-sub{font-size:0.7rem;opacity:0.8;margin-top:0.1rem;}
-.prop-block-badge{background:rgba(255,255,255,0.2);padding:0.3rem 0.8rem;border-radius:100px;font-size:0.78rem;font-weight:500;white-space:nowrap;}
-.prop-block-body{padding:1.1rem;}
-.vol-route{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:1rem;background:var(--light-bg);border-radius:12px;padding:1rem 0.8rem;}
+
+/* ACCUEIL */
+#page-accueil{background:var(--fonce);}
+.hero{padding:2.8rem 1.2rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.hero-tag{font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--or);margin-bottom:0.65rem;font-weight:500;opacity:0;animation:fu 0.7s 0.2s forwards;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,14vw,5.5rem);color:#EEF4F8;line-height:0.9;font-weight:600;margin-bottom:0.9rem;opacity:0;animation:fu 0.8s 0.4s forwards;}
+.hero-title em{color:#87CEEB;font-style:italic;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(0.95rem,3vw,1.2rem);color:rgba(238,244,248,0.6);margin-bottom:1.6rem;opacity:0;animation:fu 0.8s 0.6s forwards;}
+.date-pill{display:inline-flex;align-items:center;gap:0.65rem;background:var(--or);color:white;padding:0.65rem 1.5rem;border-radius:100px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;opacity:0;animation:fu 0.8s 0.8s forwards;}
+
+/* COMPARATIF TABLE */
+.comp-wrap{max-width:680px;margin:0 auto;padding:0 1rem 2rem;}
+.comp-label{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(238,244,248,0.35);text-align:center;margin:1.5rem 0 0.75rem;}
+.comp-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;}
+.comp-head{padding:0.85rem 1rem;border-bottom:1px solid rgba(255,255,255,0.07);}
+.comp-head-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#EEF4F8;font-weight:600;}
+.comp-head-sub{font-size:0.62rem;color:rgba(238,244,248,0.4);margin-top:0.15rem;}
+table.ctable{width:100%;border-collapse:collapse;font-size:0.8rem;}
+table.ctable th{padding:0.55rem 0.8rem;text-align:right;color:rgba(238,244,248,0.38);font-size:0.57rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;}
+table.ctable th:first-child{text-align:left;}
+table.ctable td{padding:0.7rem 0.8rem;border-bottom:1px solid rgba(255,255,255,0.05);text-align:right;color:rgba(238,244,248,0.65);}
+table.ctable td:first-child{text-align:left;color:#EEF4F8;font-weight:500;}
+table.ctable tr:last-child td{border-bottom:none;}
+table.ctable td.best{color:var(--or);font-weight:700;}
+.comp-note{font-size:0.62rem;color:rgba(238,244,248,0.25);text-align:center;padding:0.8rem 1rem 1rem;line-height:1.6;}
+
+/* DEST PAGES */
+.dest-page{background:var(--light);}
+.dest-hero{background:var(--fonce);padding:2rem 1.2rem 1.5rem;text-align:center;}
+.dest-hero-tag{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);margin-bottom:0.4rem;font-weight:500;}
+.dest-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,10vw,4rem);color:#EEF4F8;font-weight:600;line-height:1;}
+.dest-hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(238,244,248,0.55);margin-top:0.35rem;}
+
+/* SUB-TABS */
+.sub-tabs{display:flex;background:white;margin:0 1rem;border-radius:12px;padding:0.25rem;box-shadow:0 1px 8px rgba(14,31,48,0.08);gap:0.2rem;max-width:640px;margin-left:auto;margin-right:auto;position:relative;top:-1px;}
+.stab{flex:1;background:none;border:none;border-radius:9px;padding:0.55rem 0.2rem;font-family:'Jost',sans-serif;font-size:0.56rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--mid);cursor:pointer;transition:all 0.18s;display:flex;flex-direction:column;align-items:center;gap:0.15rem;}
+.stab .si{font-size:0.9rem;}
+.stab.active{background:var(--fonce);color:white;}
+.stab:hover:not(.active){background:var(--light);color:var(--bleu);}
+
+/* SUB PANELS */
+.sub-panel{display:none;max-width:660px;margin:0 auto;padding:1.25rem 1rem 2rem;}
+.sub-panel.active{display:block;}
+
+/* CARDS */
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(14,31,48,0.07);margin-bottom:1rem;border:1px solid rgba(27,58,92,0.07);}
+.card-head{padding:0.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;color:white;}
+.card-head.bleu{background:var(--bleu);}
+.card-head.or{background:var(--or);}
+.card-head.turq{background:var(--turquoise);}
+.card-head.fonce{background:var(--fonce);}
+.card-head-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;}
+.card-head-sub{font-size:0.67rem;opacity:0.8;margin-top:0.08rem;}
+.card-badge{background:rgba(255,255,255,0.18);padding:0.28rem 0.75rem;border-radius:100px;font-size:0.76rem;font-weight:600;white-space:nowrap;}
+.card-body{padding:1rem 1.1rem;}
+
+/* VOL ROUTE */
+.vol-route{display:flex;align-items:center;gap:0.6rem;background:var(--light);border-radius:10px;padding:0.85rem 0.7rem;margin-bottom:0.8rem;}
 .vol-city{text-align:center;flex-shrink:0;}
-.vol-code{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--fonce);line-height:1;}
-.vol-time{font-size:1rem;font-weight:600;color:var(--bleu);margin-top:0.12rem;}
-.vol-city-name{font-size:0.6rem;color:#AAA;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.12rem;max-width:75px;line-height:1.3;}
-.vol-arrow{display:flex;flex-direction:column;align-items:center;gap:0.25rem;flex:1;min-width:50px;}
-.vol-line{width:100%;height:1px;background:linear-gradient(to right,var(--bleu),var(--bleu-clair));position:relative;}
-.vol-line::after{content:'✈';position:absolute;right:-4px;top:-11px;font-size:0.9rem;color:var(--bleu-clair);}
-.vol-duration{font-size:0.65rem;color:#BBB;letter-spacing:0.05em;text-align:center;}
-.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:0.8rem;}
-.detail-cell{background:var(--light-bg);border-radius:10px;padding:0.65rem 0.85rem;}
-.detail-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#CCC;margin-bottom:0.25rem;font-weight:500;}
-.detail-value{font-weight:500;color:var(--fonce);font-size:0.88rem;}
-.detail-value.hl{color:var(--bleu);font-weight:700;}
-.detail-value.or{color:var(--or);font-weight:700;}
-.heberg-card{background:var(--light-bg);border-radius:12px;margin-bottom:0.7rem;overflow:hidden;}
-.heberg-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1rem;cursor:pointer;}
-.heberg-name{font-size:0.92rem;font-weight:600;color:var(--fonce);}
-.heberg-type{font-size:0.68rem;color:var(--mid);margin-top:0.1rem;}
-.heberg-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--bleu);}
-.heberg-ppn{font-size:0.62rem;color:#AAA;text-align:right;}
-.heberg-chevron{font-size:0.9rem;color:#CCC;margin-left:0.5rem;transition:transform 0.2s;}
-.heberg-chevron.open{transform:rotate(90deg);}
-.heberg-body{display:none;padding:0 1rem 0.9rem;}
-.heberg-body.open{display:block;}
-.heberg-link{display:flex;align-items:center;gap:0.65rem;padding:0.8rem 0.9rem;background:white;border-radius:10px;text-decoration:none;color:var(--fonce);font-size:0.86rem;font-weight:500;margin-bottom:0.5rem;}
-.heberg-link-icon{font-size:1rem;}
-.heberg-link-text{flex:1;font-size:0.82rem;color:var(--mid);}
-.heberg-link-arrow{font-size:0.9rem;opacity:0.4;flex-shrink:0;}
-.budget-row{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid var(--light-bg);font-size:0.88rem;}
-.budget-row:last-child{border-bottom:none;}
-.budget-row.total{padding-top:0.9rem;}
-.budget-row.total .budget-label{font-weight:700;color:var(--fonce);font-size:0.92rem;}
-.budget-row.total .budget-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--bleu);}
-.budget-label{color:var(--mid);}
-.budget-val{font-weight:600;color:var(--fonce);}
-.budget-val.highlight{color:var(--bleu);}
-.budget-option{background:var(--light-bg);border-radius:14px;padding:1rem;margin-bottom:0.75rem;}
-.budget-option-title{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bleu);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
-.info-block{background:white;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(26,46,64,0.06);margin-bottom:1rem;border:1px solid rgba(42,95,143,0.07);}
-.info-block-header{display:flex;align-items:center;gap:0.85rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--light-bg);}
-.info-block-icon{font-size:1.5rem;flex-shrink:0;}
-.info-block-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--fonce);}
-.info-block-sub{font-size:0.7rem;color:#AAA;margin-top:0.1rem;}
-.info-block-body{padding:1rem 1.2rem;}
-.info-item{display:flex;align-items:flex-start;gap:0.7rem;padding:0.65rem 0;border-bottom:1px solid var(--light-bg);font-size:0.85rem;color:var(--text);line-height:1.55;}
-.info-item:last-child{border-bottom:none;}
-.info-item-icon{font-size:1rem;flex-shrink:0;margin-top:0.1rem;}
-.info-item strong{color:var(--fonce);}
-.meteo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-top:0.75rem;}
-.meteo-cell{background:var(--light-bg);border-radius:10px;padding:0.65rem 0.4rem;text-align:center;}
-.meteo-label{font-size:0.6rem;color:#BBB;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.3rem;}
-.meteo-emoji{font-size:1.1rem;margin-bottom:0.2rem;}
-.meteo-val{font-size:0.85rem;font-weight:600;color:var(--fonce);}
-.activite-item{background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.65rem;}
-.activite-header{display:flex;align-items:flex-start;gap:0.65rem;margin-bottom:0.5rem;}
-.activite-emoji{font-size:1.3rem;flex-shrink:0;}
-.activite-name{font-size:0.9rem;font-weight:600;color:var(--fonce);line-height:1.3;}
-.activite-type{font-size:0.65rem;color:#AAA;margin-top:0.1rem;}
-.activite-desc{font-size:0.81rem;color:#777;line-height:1.6;}
-.tag{display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.55rem;border-radius:100px;margin-left:auto;flex-shrink:0;}
-.tag.nature{background:rgba(58,138,122,0.12);color:var(--turquoise);}
-.tag.culture{background:rgba(42,95,143,0.12);color:var(--bleu);}
-.tag.sport{background:rgba(200,151,58,0.15);color:#9A6E10;}
-.tag.gastro{background:rgba(58,138,122,0.1);color:var(--turquoise);}
-.tag.detente{background:rgba(42,95,143,0.1);color:var(--bleu);}
-.alert-box{padding:0.85rem 1rem;background:#FFF8EE;border-left:3px solid var(--or);border-radius:0 10px 10px 0;font-size:0.82rem;color:#6A5030;display:flex;align-items:flex-start;gap:0.6rem;line-height:1.6;margin-top:0.8rem;}
-.alert-icon{font-size:0.9rem;flex-shrink:0;margin-top:0.2rem;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-@media(min-width:768px){
+.vc-code{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--fonce);line-height:1;}
+.vc-time{font-size:0.95rem;font-weight:600;color:var(--bleu);margin-top:0.1rem;}
+.vc-name{font-size:0.57rem;color:#BBB;text-transform:uppercase;letter-spacing:0.05em;margin-top:0.1rem;max-width:70px;line-height:1.3;}
+.vol-mid{flex:1;display:flex;flex-direction:column;align-items:center;gap:0.2rem;min-width:40px;}
+.vol-line{width:100%;height:1px;background:linear-gradient(to right,var(--bleu),#7EC8E3);position:relative;}
+.vol-line::after{content:'✈';position:absolute;right:-3px;top:-10px;font-size:0.85rem;color:#7EC8E3;}
+.vol-dir{font-size:0.6rem;color:#CCC;letter-spacing:0.05em;}
+
+/* DETAIL GRID */
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem;}
+.dcell{background:var(--light);border-radius:9px;padding:0.6rem 0.8rem;}
+.dlabel{font-size:0.57rem;letter-spacing:0.15em;text-transform:uppercase;color:#CCC;margin-bottom:0.2rem;font-weight:500;}
+.dval{font-weight:600;color:var(--fonce);font-size:0.86rem;}
+.dval.hl{color:var(--bleu);}
+.dval.or{color:var(--or);}
+.dval.warn{color:var(--rouge);}
+
+/* HEBERGEMENT */
+.hcard{background:var(--light);border-radius:11px;margin-bottom:0.65rem;overflow:hidden;}
+.hcard-head{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0.95rem;cursor:pointer;}
+.hcard-name{font-size:0.88rem;font-weight:600;color:var(--fonce);}
+.hcard-type{font-size:0.65rem;color:var(--mid);margin-top:0.08rem;}
+.hcard-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--bleu);}
+.hcard-ppn{font-size:0.6rem;color:#AAA;text-align:right;}
+.hcard-chev{font-size:0.85rem;color:#CCC;margin-left:0.4rem;transition:transform 0.18s;}
+.hcard-chev.open{transform:rotate(90deg);}
+.hcard-body{display:none;padding:0 0.95rem 0.85rem;}
+.hcard-body.open{display:block;}
+.hlink{display:flex;align-items:center;gap:0.6rem;padding:0.75rem 0.85rem;background:white;border-radius:9px;text-decoration:none;color:var(--fonce);font-size:0.82rem;font-weight:500;}
+.hlink-txt{flex:1;font-size:0.78rem;color:var(--mid);}
+.hlink-arr{opacity:0.4;flex-shrink:0;}
+
+/* NOTES HOTEL */
+.notes-list{margin-top:0.6rem;}
+.note-item{display:flex;align-items:flex-start;gap:0.55rem;padding:0.45rem 0;border-bottom:1px solid rgba(14,31,48,0.06);font-size:0.82rem;color:var(--text);line-height:1.5;}
+.note-item:last-child{border-bottom:none;}
+.note-icon{flex-shrink:0;font-size:0.9rem;margin-top:0.05rem;}
+
+/* BUDGET */
+.brow{display:flex;justify-content:space-between;align-items:center;padding:0.7rem 0;border-bottom:1px solid var(--light);font-size:0.86rem;}
+.brow:last-child{border-bottom:none;}
+.blabel{color:var(--mid);}
+.bval{font-weight:600;color:var(--fonce);}
+.bopt{background:var(--light);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.65rem;}
+.bopt-title{font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bleu);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.4rem;}
+.btotal-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;margin-top:0.35rem;}
+.btotal-label{font-size:0.88rem;font-weight:700;color:var(--fonce);}
+.btotal-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--bleu);}
+.bpp{text-align:right;font-size:0.7rem;color:var(--mid);margin-top:0.12rem;}
+
+/* ALERT */
+.alert{padding:0.8rem 0.95rem;background:#FFF8EE;border-left:3px solid var(--or);border-radius:0 9px 9px 0;font-size:0.8rem;color:#6A5030;display:flex;align-items:flex-start;gap:0.55rem;line-height:1.6;margin-top:0.75rem;}
+.alert-icon{flex-shrink:0;margin-top:0.15rem;}
+.alert.warn{background:#FFF0EE;border-left-color:var(--rouge);color:#6A2020;}
+
+/* DECOUVERTE */
+.disco-section{margin-bottom:1rem;}
+.disco-block{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(14,31,48,0.06);margin-bottom:1rem;border:1px solid rgba(27,58,92,0.07);}
+.disco-block-head{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.1rem;border-bottom:1px solid var(--light);}
+.disco-icon{font-size:1.4rem;flex-shrink:0;}
+.disco-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--fonce);}
+.disco-sub{font-size:0.67rem;color:#AAA;margin-top:0.08rem;}
+.disco-body{padding:1rem 1.1rem;}
+.disco-item{display:flex;align-items:flex-start;gap:0.65rem;padding:0.6rem 0;border-bottom:1px solid var(--light);font-size:0.83rem;color:var(--text);line-height:1.55;}
+.disco-item:last-child{border-bottom:none;}
+.disco-item-icon{font-size:0.95rem;flex-shrink:0;margin-top:0.1rem;}
+.disco-item strong{color:var(--fonce);}
+
+/* MÉTÉO */
+.meteo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.45rem;margin-top:0.7rem;}
+.mc{background:var(--light);border-radius:9px;padding:0.6rem 0.35rem;text-align:center;}
+.mc-label{font-size:0.57rem;color:#BBB;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;}
+.mc-emoji{font-size:1rem;margin-bottom:0.18rem;}
+.mc-val{font-size:0.82rem;font-weight:600;color:var(--fonce);}
+
+/* ACTIVITES */
+.act-item{background:var(--light);border-radius:11px;padding:0.85rem 0.95rem;margin-bottom:0.6rem;}
+.act-head{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.4rem;}
+.act-emoji{font-size:1.2rem;flex-shrink:0;}
+.act-name{font-size:0.88rem;font-weight:600;color:var(--fonce);line-height:1.3;}
+.act-lieu{font-size:0.62rem;color:#AAA;margin-top:0.08rem;}
+.act-desc{font-size:0.79rem;color:#777;line-height:1.58;}
+.tag{display:inline-block;font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.5rem;border-radius:100px;margin-left:auto;flex-shrink:0;}
+.tag.nat{background:rgba(45,122,114,0.12);color:var(--turquoise);}
+.tag.cult{background:rgba(27,58,92,0.1);color:var(--bleu);}
+.tag.sport{background:rgba(200,151,58,0.14);color:#9A6E10;}
+.tag.gastro{background:rgba(45,122,114,0.1);color:var(--turquoise);}
+
+/* PHOTOS */
+.photos-strip{display:flex;gap:0.5rem;margin-top:0.75rem;}
+.photo-frame{flex:1;min-width:0;border-radius:10px;overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--light);}
+.photo-frame img{width:100%;height:100%;object-fit:cover;}
+.photo-label{position:absolute;bottom:0;left:0;right:0;padding:0.35rem 0.55rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.65rem;color:white;font-weight:500;}
+
+/* ANIMATIONS */
+@keyframes fu{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+@media(min-width:640px){
   :root{--nav-h:64px;}
-  .nav-tab{font-size:0.72rem;flex:none;padding:0 1.1rem;border-bottom-width:3px;}
-  .nav-tab .tab-icon{display:none;}
-  .section-wrap{padding:3.5rem 2rem;max-width:900px;}
+  .nav-tab{font-size:0.68rem;flex:none;padding:0 1rem;}
+  .nav-tab .ti{display:none;}
   .meteo-grid{grid-template-columns:repeat(8,1fr);}
 }
 </style>
 
 <nav>
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('accueil',this)"><span class="tab-icon">🏠</span><span class="tab-label">Accueil</span></button>
-    <button class="nav-tab" onclick="showPage('sardaigne',this)"><span class="tab-icon">🏝️</span><span class="tab-label">Sardaigne</span></button>
-    <button class="nav-tab" onclick="showPage('montenegro',this)"><span class="tab-icon">⛵</span><span class="tab-label">Monténégro</span></button>
-    <button class="nav-tab" onclick="showPage('rhodes',this)"><span class="tab-icon">🌊</span><span class="tab-label">Rhodes</span></button>
-    <button class="nav-tab" onclick="showPage('malte',this)"><span class="tab-icon">☀️</span><span class="tab-label">Malte</span></button>
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="goPage('accueil',this)"><span class="ti">🏠</span><span class="tl">Accueil</span></button>
+    <button class="nav-tab" onclick="goPage('istanbul',this)"><span class="ti">🕌</span><span class="tl">Istanbul</span></button>
+    <button class="nav-tab" onclick="goPage('sicile',this)"><span class="ti">🌋</span><span class="tl">Sicile</span></button>
+    <button class="nav-tab" onclick="goPage('tenerife',this)"><span class="ti">🌴</span><span class="tl">Ténérife</span></button>
+    <button class="nav-tab" onclick="goPage('espagne',this)"><span class="ti">💃</span><span class="tl">Séville</span></button>
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════════ -->
 <!-- ACCUEIL -->
+<!-- ═══════════════════════════════════════════ -->
 <div id="page-accueil" class="page active">
-  <div class="hero-content" style="background:var(--fonce);">
-    <div class="hero-eyebrow">Été 2026 · Comparatif 4 destinations ✨</div>
+  <div class="hero" style="background:var(--fonce);">
+    <div class="hero-tag">Été 2026 · Comparatif destinations ✨</div>
     <h1 class="hero-title">Où <em>partir</em><br>cet été ?</h1>
-    <p class="hero-subtitle">4 destinations méditerranéennes · 1 choix à faire</p>
-    <div class="hero-dates"><div class="date-pill"><span>1 août 2026</span><span class="sep">—</span><span>8 août 2026</span></div></div>
+    <p class="hero-sub">4 destinations · 1 décision à prendre</p>
+    <div class="date-pill">1 août — 8 août 2026</div>
   </div>
-    <div class="dest-grid">
-        <!-- Tableau comparatif -->
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;margin-top:0.5rem;">
-      <div style="padding:0.9rem 1.1rem;border-bottom:1px solid rgba(255,255,255,0.08);">
-        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,244,248,0.45);margin-bottom:0.25rem;">Comparatif rapide</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#EEF4F8;font-weight:600;">Vue d'ensemble des coûts · 2 pers. · 7 nuits</div>
+
+  <div class="comp-wrap">
+    <div class="comp-label">Comparatif rapide · cliquez sur une destination</div>
+    <div class="comp-box">
+      <div class="comp-head">
+        <div class="comp-head-title">Vue d'ensemble · 2 personnes · 7 nuits</div>
+        <div class="comp-head-sub">Vols + hôtel (option la plus chère) + voiture</div>
       </div>
-      <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
-          <thead><tr>
-            <th style="padding:0.6rem 0.9rem;text-align:left;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Destination</th>
-            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Vols</th>
-            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Logement</th>
-            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Voiture</th>
-            <th style="padding:0.6rem 0.9rem;text-align:right;color:rgba(238,244,248,0.45);font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Total</th>
-          </tr></thead>
-          <tbody>
-            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;border-bottom:1px solid rgba(255,255,255,0.06);">🇮🇹 Sardaigne</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">242 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">924 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">259 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">1 425 €</td></tr>
-            <tr style="background:rgba(58,138,122,0.1);"><td style="padding:0.65rem 0.9rem;color:#EEF4F8;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">🇲🇪 Monténégro ✦</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">530 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">803 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">252 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:#7EC8E3;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">1 585 €</td></tr>
-            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;border-bottom:1px solid rgba(255,255,255,0.06);">🇬🇷 Rhodes</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">425 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">772 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);border-bottom:1px solid rgba(255,255,255,0.06);">194 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);">1 391 €</td></tr>
-            <tr><td style="padding:0.65rem 0.9rem;color:#EEF4F8;">🇲🇹 Malte</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);">257 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);">1 067 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:rgba(238,244,248,0.7);">70 €</td><td style="padding:0.65rem 0.9rem;text-align:right;color:var(--or);font-weight:700;">1 394 €</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="ctable">
+        <thead><tr>
+          <th>Destination</th>
+          <th>Vols</th>
+          <th>Hôtel</th>
+          <th>Voiture</th>
+          <th>Total</th>
+        </tr></thead>
+        <tbody>
+          <tr onclick="goPage('istanbul',document.querySelectorAll('.nav-tab')[1])" style="cursor:pointer;">
+            <td>🕌 Istanbul</td>
+            <td>1 100 €</td>
+            <td>359 €</td>
+            <td>0 €</td>
+            <td class="best">1 459 €</td>
+          </tr>
+          <tr onclick="goPage('tenerife',document.querySelectorAll('.nav-tab')[3])" style="cursor:pointer;">
+            <td>🌴 Ténérife</td>
+            <td>882 €</td>
+            <td>447 €</td>
+            <td>45 €</td>
+            <td>1 374 €</td>
+          </tr>
+          <tr onclick="goPage('sicile',document.querySelectorAll('.nav-tab')[2])" style="cursor:pointer;">
+            <td>🌋 Sicile · Catane</td>
+            <td>556 €</td>
+            <td>727 €</td>
+            <td>191 €</td>
+            <td>1 474 €</td>
+          </tr>
+          <tr onclick="goPage('espagne',document.querySelectorAll('.nav-tab')[4])" style="cursor:pointer;">
+            <td>💃 Séville</td>
+            <td>510 €</td>
+            <td>840 €</td>
+            <td>0 €</td>
+            <td>1 350 €</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div style="font-size:0.68rem;color:rgba(238,244,248,0.3);text-align:center;padding:0.5rem 0 1.5rem;line-height:1.7;">Tarifs relevés le 16 juin 2026 · 2 personnes · 7 nuits<br>Vols + logement (prix le plus haut) + voiture · 2 pers. · 7 nuits · ✦ Prix le plus bas</div>
+    <div class="comp-note">Tarifs relevés en juin 2026 · Vols = 2 personnes · Hôtel = 7 nuits · Cliquez sur une ligne pour explorer</div>
   </div>
 </div>
 
-<!-- ========== SARDAIGNE ========== -->
-<div id="page-sardaigne" class="page dest-page">
-  <div class="section-wrap">
-    <div class="section-header"><div class="section-tag">🇮🇹 Italie · Cagliari</div><h2 class="section-title">Sardaigne</h2></div>
-    
+<!-- ═══════════════════════════════════════════ -->
+<!-- ISTANBUL -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-istanbul" class="page dest-page">
+  <div class="dest-hero">
+    <div class="dest-hero-tag">🕌 Turquie · Istanbul</div>
+    <div class="dest-hero-title">Istanbul</div>
+    <div class="dest-hero-sub">Le Bosphore entre deux continents</div>
+  </div>
+
+  <div style="background:white;padding:0.5rem 0;">
     <div class="sub-tabs">
-      <button class="sub-tab active" onclick="showSub('sardaigne','vol',this)"><span class="sub-tab-icon">✈️</span><span>Vol</span></button>
-      <button class="sub-tab" onclick="showSub('sardaigne','logement',this)"><span class="sub-tab-icon">🏨</span><span>Logement</span></button>
-      <button class="sub-tab" onclick="showSub('sardaigne','voiture',this)"><span class="sub-tab-icon">🚗</span><span>Voiture</span></button>
-      <button class="sub-tab" onclick="showSub('sardaigne','budget',this)"><span class="sub-tab-icon">💰</span><span>Budget</span></button>
-      <button class="sub-tab" onclick="showSub('sardaigne','vie',this)"><span class="sub-tab-icon">🌊</span><span>Sur place</span></button>
+      <button class="stab active" onclick="goSub('istanbul','vol',this)"><span class="si">✈️</span><span>Vol</span></button>
+      <button class="stab" onclick="goSub('istanbul','logement',this)"><span class="si">🏨</span><span>Hôtel</span></button>
+      <button class="stab" onclick="goSub('istanbul','voiture',this)"><span class="si">🚗</span><span>Voiture</span></button>
+      <button class="stab" onclick="goSub('istanbul','budget',this)"><span class="si">💰</span><span>Budget</span></button>
+      <button class="stab" onclick="goSub('istanbul','decouverte',this)"><span class="si">🌍</span><span>Découverte</span></button>
+    </div>
+  </div>
+
+  <!-- VOL -->
+  <div id="istanbul-vol" class="sub-panel active">
+    <div class="card">
+      <div class="card-head bleu">
+        <div><div class="card-head-title">✈️ Vol aller-retour</div><div class="card-head-sub">Paris CDG ↔ Istanbul · par personne</div></div>
+        <div class="card-badge">550 €</div>
+      </div>
+      <div class="card-body">
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">17:25</div><div class="vc-name">Paris CDG</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Aller · 1 août</div></div>
+          <div class="vol-city"><div class="vc-code">IST</div><div class="vc-time">22:00</div><div class="vc-name">Istanbul</div></div>
+        </div>
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">IST</div><div class="vc-time">13:30</div><div class="vc-name">Istanbul</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Retour · 8 août</div></div>
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">16:25</div><div class="vc-name">Paris CDG</div></div>
+        </div>
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix par personne</div><div class="dval hl">550 €</div></div>
+          <div class="dcell"><div class="dlabel">Prix 2 personnes</div><div class="dval hl">1 100 €</div></div>
+          <div class="dcell"><div class="dlabel">Durée aller</div><div class="dval">~3h35</div></div>
+          <div class="dcell"><div class="dlabel">Aéroport</div><div class="dval">Istanbul (IST)</div></div>
+        </div>
+        <div class="alert warn"><span class="alert-icon">⚠️</span><span>Vol aller en <strong>soirée</strong> (départ 17h25, arrivée 22h00). Prévoir le trajet hôtel à l'arrivée.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGEMENT -->
+  <div id="istanbul-logement" class="sub-panel">
+    <div class="card">
+      <div class="card-head or">
+        <div><div class="card-head-title">🏨 Hôtel · 7 nuits</div><div class="card-head-sub">Istanbul · Option hôtel 4★</div></div>
+      </div>
+      <div class="card-body">
+        <div class="hcard">
+          <div class="hcard-head" onclick="toggleH(this)">
+            <div><div class="hcard-name">🏨 Boutique Darkmen Hotel</div><div class="hcard-type">Hôtel 4★ · Istanbul</div></div>
+            <div style="display:flex;align-items:center;gap:0.45rem;">
+              <div><div class="hcard-price">359 €</div><div class="hcard-ppn">≈ 51 €/nuit · 2 pers.</div></div>
+              <div class="hcard-chev">›</div>
+            </div>
+          </div>
+          <div class="hcard-body">
+            <a class="hlink" href="https://www.booking.com/hotel/tr/boutique-darkmen.fr.html" target="_blank">
+              <span>🔗</span><span class="hlink-txt">Voir sur Booking.com</span><span class="hlink-arr">↗</span>
+            </a>
+            <div class="notes-list">
+              <div class="note-item"><span class="note-icon">🌊</span><span>Vue mer</span></div>
+              <div class="note-item"><span class="note-icon">🍳</span><span>Petit-déjeuner inclus</span></div>
+              <div class="note-item"><span class="note-icon">⭐</span><span>Hôtel 4 étoiles</span></div>
+              <div class="note-item"><span class="note-icon">🏊</span><span>Piscine et spa</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="alert"><span class="alert-icon">💡</span><span>Pas de location de voiture nécessaire à Istanbul — la ville dispose d'un excellent réseau de transports en commun (métro, tramway, ferry).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOITURE -->
+  <div id="istanbul-voiture" class="sub-panel">
+    <div class="card">
+      <div class="card-head turq">
+        <div><div class="card-head-title">🚗 Location de voiture</div><div class="card-head-sub">Non nécessaire à Istanbul</div></div>
+        <div class="card-badge">0 €</div>
+      </div>
+      <div class="card-body">
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Coût voiture</div><div class="dval or">0 € inclus</div></div>
+          <div class="dcell"><div class="dlabel">Économie vs autres</div><div class="dval hl">45–259 €</div></div>
+        </div>
+        <div class="alert"><span class="alert-icon">🚇</span><span>Istanbul possède l'un des meilleurs réseaux de transports d'Europe : <strong>métro, tramway T1, ferry Bosphore, funiculaire</strong>. Un pass Istanbulkart (~2 €) couvre tout. La voiture serait un inconvénient (circulation dense, stationnement difficile).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div id="istanbul-budget" class="sub-panel">
+    <div class="card">
+      <div class="card-head fonce">
+        <div><div class="card-head-title">💰 Budget total · 2 personnes</div><div class="card-head-sub">Vols + hôtel + transports · 7 nuits</div></div>
+      </div>
+      <div class="card-body">
+        <div class="brow"><span class="blabel">✈️ Vols (2 pers.)</span><span class="bval">1 100 €</span></div>
+        <div class="brow"><span class="blabel">🚗 Voiture</span><span class="bval" style="color:var(--turquoise);">0 € (non nécessaire)</span></div>
+        <div style="height:0.6rem;"></div>
+        <div class="bopt">
+          <div class="bopt-title">🏨 Option hôtel 4★</div>
+          <div class="brow"><span class="blabel">Boutique Darkmen Hotel</span><span class="bval">359 €</span></div>
+          <div class="btotal-row"><span class="btotal-label">Total · 2 pers.</span><span class="btotal-val">1 459 €</span></div>
+          <div class="bpp">soit ≈ 730 €/personne</div>
+        </div>
+        <div class="alert"><span class="alert-icon">💡</span><span>Montant total suggéré dans votre tableau : <strong>1 459 €</strong> (logement estimé à 400 €). Istanbul est la destination avec le <strong>meilleur rapport qualité/prix</strong> : hôtel 4★ inclus dans ce budget, vie sur place très abordable (~15–25 € le repas).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÉCOUVERTE -->
+  <div id="istanbul-decouverte" class="sub-panel">
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌡️</span><div><div class="disco-title">Météo · Août à Istanbul</div><div class="disco-sub">Mer de Marmara · Turquie</div></div></div>
+      <div class="disco-body">
+        <div class="meteo-grid">
+          <div class="mc"><div class="mc-label">Max.</div><div class="mc-emoji">☀️</div><div class="mc-val">29°C</div></div>
+          <div class="mc"><div class="mc-label">Min.</div><div class="mc-emoji">🌙</div><div class="mc-val">21°C</div></div>
+          <div class="mc"><div class="mc-label">Mer</div><div class="mc-emoji">🏊</div><div class="mc-val">24°C</div></div>
+          <div class="mc"><div class="mc-label">Soleil</div><div class="mc-emoji">⏱️</div><div class="mc-val">11h/j</div></div>
+        </div>
+        <div style="font-size:0.8rem;color:#777;line-height:1.6;margin-top:0.8rem;">Août à Istanbul est chaud et ensoleillé mais plus doux que les autres destinations. Quelques orages possibles en fin de journée. La brise du Bosphore rend les soirées très agréables.</div>
+      </div>
     </div>
 
-    <!-- VOL -->
-    <div id="sardaigne-vol" class="sub-content active">
-      <div class="prop-block">
-        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">CDG ↔ CAG · 2 personnes</div></div><div class="prop-block-badge">242 €</div></div>
-        <div class="prop-block-body">
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">10:55</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">CAG</div><div class="vol-time">13:05</div><div class="vol-city-name">Cagliari</div></div></div>
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">CAG</div><div class="vol-time">13:30</div><div class="vol-city-name">Cagliari</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">15:50</div><div class="vol-city-name">Paris CDG</div></div></div>
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix vols · 2 pers.</div><div class="detail-value hl">242 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">121 €/pers.</div></div></div>
-          
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🕌</span><div><div class="disco-title">Présentation d'Istanbul</div><div class="disco-sub">La ville entre deux continents</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">📍</span><span>Istanbul est l'unique ville au monde bâtie sur <strong>deux continents</strong> (Europe et Asie), traversée par le détroit du Bosphore. Ancienne Constantinople, capitale de l'Empire byzantin puis ottoman, elle est l'une des villes les plus fascinantes du monde.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🏛️</span><span>Capitale culturelle de la Turquie, Istanbul concentre <strong>8 sites classés UNESCO</strong> dans son seul centre historique : Sainte-Sophie, la Mosquée Bleue, le Palais de Topkapi, les remparts byzantins…</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🛒</span><span>Le <strong>Grand Bazar</strong> (Kapalıçarşı) avec ses 4 000 boutiques et le <strong>Bazar aux épices</strong> (Mısır Çarşısı) offrent une expérience sensorielle unique. Indispensable de marchander !</span></div>
+        <div class="disco-item"><span class="disco-item-icon">💰</span><span>Ville très <strong>abordable</strong> pour les voyageurs européens grâce à la faiblesse de la lire turque. Repas excellents à 10–20 €, transports quasi gratuits, vie nocturne animée sans se ruiner.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">⛴️</span><span>Les <strong>ferries du Bosphore</strong> constituent l'une des expériences les plus inoubliables : traverser d'Europe en Asie pour 50 centimes, avec vue sur les minarets et les palaces ottomans.</span></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">📸</span><div><div class="disco-title">Photos</div><div class="disco-sub">Aperçu de la destination</div></div></div>
+      <div class="disco-body" style="padding:0.75rem;">
+        <div class="photos-strip">
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Hagia_Sophia_Mars_2013.jpg/1280px-Hagia_Sophia_Mars_2013.jpg" alt="Sainte-Sophie" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Sainte-Sophie</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bosphorus_Bridge_%28Bosphorus%29.jpg/1280px-Bosphorus_Bridge_%28Bosphorus%29.jpg" alt="Bosphore" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Le Bosphore</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Grand_Bazaar%2C_Istanbul.jpg/1280px-Grand_Bazaar%2C_Istanbul.jpg" alt="Grand Bazar" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Grand Bazar</div></div>
         </div>
       </div>
     </div>
 
-    <!-- LOGEMENT -->
-    <div id="sardaigne-logement" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour le lien</div></div></div>
-        <div class="prop-block-body">
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hôtel Arcipelago 37</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Cagliari</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">924 €</div><div class="heberg-ppn">≈ 132 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/it/arcipelago-37.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Cagliari</div><div class="heberg-type">Appartement entier · Cagliari</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">837 €</div><div class="heberg-ppn">≈ 120 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/775174448860445134" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-        </div>
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🎯</span><div><div class="disco-title">Incontournables</div><div class="disco-sub">Ce qu'il ne faut pas manquer</div></div></div>
+      <div class="disco-body">
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🕌</span><div><div class="act-name">Sainte-Sophie & Mosquée Bleue</div><div class="act-lieu">Sultanahmet · Centre historique</div></div><span class="tag cult">Culture</span></div><div class="act-desc">Les deux monuments emblématiques face à face. Sainte-Sophie, ancienne cathédrale byzantine reconvertie en mosquée, est un chef-d'œuvre architectural absolu. La Mosquée Bleue (Sultan Ahmed) avec ses 6 minarets est tout aussi spectaculaire. Accès libre (hors heures de prière).</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🏰</span><div><div class="act-name">Palais de Topkapi</div><div class="act-lieu">Sultanahmet · Péninsule historique</div></div><span class="tag cult">Culture</span></div><div class="act-desc">L'ancien palais des sultans ottomans pendant 4 siècles. Harems, trésors impériaux, reliques islamiques, jardins avec vue panoramique sur le Bosphore. Comptez une demi-journée complète. Réservation en ligne conseillée.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">⛴️</span><div><div class="act-name">Croisière sur le Bosphore</div><div class="act-lieu">Embarcadères d'Eminönü ou Kabataş</div></div><span class="tag nat">Nature</span></div><div class="act-desc">La croisière publique (10–25 €/pers.) longe les deux rives jusqu'à la mer Noire. Villas ottomanes, forteresses médiévales, ponts suspendus. L'une des plus belles promenades en bateau d'Europe.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌃</span><div><div class="act-name">Karaköy & Beyoğlu — Vie nocturne</div><div class="act-lieu">Rive européenne · Quartier moderne</div></div><span class="tag gastro">Gastronomie</span></div><div class="act-desc">Le quartier branché d'Istanbul : bars à vins, restaurants de poisson, galeries d'art, cafés. La rue Istiklal et ses ruelles cachent les meilleures tables. À ne pas manquer : meze, kebab Döner, baklava maison.</div></div>
       </div>
     </div>
 
-    <!-- VOITURE -->
-    <div id="sardaigne-voiture" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header turquoise"><div><div class="prop-block-title">🚗 Location de voiture</div><div class="prop-block-sub">7 nuits · 2 personnes</div></div><div class="prop-block-badge">≈ 259 €</div></div>
-        <div class="prop-block-body">
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix · 2 pers. / sem.</div><div class="detail-value hl">≈ 259 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">≈ 129 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">💡</span><span>La voiture est indispensable pour rejoindre les plus belles plages du sud. Réservez bien à l'avance en août.</span></div>
-        </div>
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">💡</span><div><div class="disco-title">Bon à savoir</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">🛂</span><span><strong>Visa :</strong> Les Français n'ont pas besoin de visa pour la Turquie (séjour jusqu'à 90 jours). Passeport valide obligatoire (CNI non acceptée).</span></div>
+        <div class="disco-item"><span class="disco-item-icon">💱</span><span><strong>Monnaie :</strong> Lire turque (TRY). Les euros et cartes bancaires sont largement acceptés dans les zones touristiques. Le change sur place est avantageux.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">📱</span><span><strong>Réseau :</strong> Pas de roaming UE — vérifiez votre forfait ou achetez une SIM turque à l'aéroport (~15–20 € pour 10 Go).</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🕌</span><span><strong>Respect :</strong> Couvrez épaules et genoux pour entrer dans les mosquées. Les femmes doivent couvrir leurs cheveux (foulards fournis à l'entrée).</span></div>
       </div>
     </div>
 
-    <!-- BUDGET -->
-    <div id="sardaigne-budget" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total · 2 personnes</div><div class="prop-block-sub">Vols + logement + voiture</div></div></div>
-        <div class="prop-block-body">
-          <div class="budget-row"><span class="budget-label">✈️ Vols (2 pers.)</span><span class="budget-val">242 €</span></div>
-          <div class="budget-row"><span class="budget-label">🚗 Location voiture</span><span class="budget-val">≈ 259 €</span></div>
-          <div style="height:0.75rem;"></div>
-          <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#BBB;font-weight:500;margin-bottom:0.6rem;">Selon le logement choisi</div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.6rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏨 Hôtel Arcipelago 37</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">924 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1425 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 712 €/personne</div>
-          </div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏠 Airbnb Cagliari</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">837 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1338 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 669 €/personne</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIE SUR PLACE -->
-    <div id="sardaigne-vie" class="sub-content">
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Cagliari</div><div class="info-block-sub">Sud de la Sardaigne · Méditerranée</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">32°C</div></div>
-      <div class="info-block">
-        <div class="info-block-header"><span class="info-block-icon">📸</span><div><div class="info-block-title">Photos</div><div class="info-block-sub">Aperçu des paysages</div></div></div>
-        <div class="info-block-body" style="padding:0.75rem;">
-          <div style="display:flex;gap:0.5rem;"><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spiaggia_di_Villasimius.jpg/1280px-Spiaggia_di_Villasimius.jpg" alt="Villasimius" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Villasimius</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Costa_Rei_Sardinia.jpg/1280px-Costa_Rei_Sardinia.jpg" alt="Costa Rei" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Costa Rei</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Cala_Mariolu_Baunei.jpg/1280px-Cala_Mariolu_Baunei.jpg" alt="Cala Mariolu" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Cala Mariolu</div>
-        </div></div>
-        </div>
-      </div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">22°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">25°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">11h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août est chaud et très sec. Le vent Maestrale peut souffler quelques jours, rafraîchissant agréablement. Mer idéale pour la baignade. Quasi aucune pluie.</div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏝️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">La perle de la Méditerranée</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Île italienne au cœur de la Méditerranée. <strong>Cagliari</strong>, la capitale, est une ville animée avec un centre historique perché sur une colline.</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Réputée pour ses <strong>eaux turquoise cristallines</strong> et ses plages de sable blanc parmi les plus belles d'Europe (Villasimius, Costa Rei, Chia).</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span>La voiture est <strong>indispensable</strong> — transports en commun vers les plages quasi inexistants. Routes belles et peu chargées en dehors des axes principaux.</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Riche patrimoine archéologique : sites <strong>nuragiques</strong> (constructions en pierre uniques au monde), tours génoises, villages médiévaux.</span></div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Autour de Cagliari · Sud de l'île</div></div></div><div class="info-block-body">
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏖️</span><div><div class="activite-name">Plages du Sud — Villasimius & Costa Rei</div><div class="activite-type">40–60 min de Cagliari</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Eaux turquoise, sable blanc fin, criques sauvages. Villasimius est LA destination plage du sud. Costa Rei offre des kilomètres de sable quasi désert. Arrivez tôt en août pour trouver de la place.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Cagliari historique — Quartier Castello</div><div class="activite-type">Sur place</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Le vieux Cagliari perché sur une colline avec tour pisan, cathédrale et panorama exceptionnel sur la baie et les étangs à flamants roses. À visiter en fin d'après-midi pour la lumière dorée.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦩</span><div><div class="activite-name">Étang de Molentargius — Flamants roses</div><div class="activite-type">5 min de Cagliari</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Parc naturel abritant des milliers de flamants roses. Balade à pied ou à vélo dans un paysage insolite entre mer et ville. Gratuit et magique en soirée.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🤿</span><div><div class="activite-name">Snorkeling & plongée</div><div class="activite-type">Villasimius / Chia</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Les eaux du sud sont d'une transparence exceptionnelle. Excursions en bateau depuis Villasimius vers des zones marines protégées. Posidonies, mérous, murènes.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍷</span><div><div class="activite-name">Gastronomie sarde</div><div class="activite-type">Restaurants locaux</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Bottarga, culurgiones (raviolis sardes), porceddu (cochon de lait rôti), fromage Pecorino Sardo, vin Vermentino blanc. Une cuisine unique, rustique et délicieuse.</div></div>
-      </div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Roaming UE inclus. Cartes acceptées partout sauf marchés de plage.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Voiture :</strong> Réservez impérativement à l'avance en août — les loueurs affichent complet. Permis EU valide.</span></div><div class="info-item"><span class="info-item-icon">🏖️</span><span><strong>Plages :</strong> Certaines très fréquentées facturent un droit d'accès ou de stationnement (2–5 €) en haute saison.</span></div><div class="info-item"><span class="info-item-icon">🌿</span><span><strong>Sable protégé :</strong> Interdiction formelle de prélever du sable ou des galets des plages protégées — amende jusqu'à 3 000 €.</span></div></div></div>
-    </div>
   </div>
 </div>
 
-<!-- ========== MONTENEGRO ========== -->
-<div id="page-montenegro" class="page dest-page">
-  <div class="section-wrap">
-    <div class="section-header"><div class="section-tag">🇲🇪 Monténégro · Budva</div><h2 class="section-title">Monténégro</h2></div>
-    <div style="background:rgba(58,138,122,0.1);border:1px solid rgba(58,138,122,0.2);border-radius:14px;padding:0.85rem 1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.65rem;font-size:0.85rem;color:var(--turquoise);font-weight:500;"><span style="font-size:1.2rem;">🏆</span> Destination la moins chère du comparatif — 718 € suggérés</div>
+<!-- ═══════════════════════════════════════════ -->
+<!-- SICILE -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-sicile" class="page dest-page">
+  <div class="dest-hero">
+    <div class="dest-hero-tag">🌋 Italie · Catane</div>
+    <div class="dest-hero-title">Sicile</div>
+    <div class="dest-hero-sub">L'île au pied de l'Etna</div>
+  </div>
+
+  <div style="background:white;padding:0.5rem 0;">
     <div class="sub-tabs">
-      <button class="sub-tab active" onclick="showSub('montenegro','vol',this)"><span class="sub-tab-icon">✈️</span><span>Vol</span></button>
-      <button class="sub-tab" onclick="showSub('montenegro','logement',this)"><span class="sub-tab-icon">🏨</span><span>Logement</span></button>
-      <button class="sub-tab" onclick="showSub('montenegro','voiture',this)"><span class="sub-tab-icon">🚗</span><span>Voiture</span></button>
-      <button class="sub-tab" onclick="showSub('montenegro','budget',this)"><span class="sub-tab-icon">💰</span><span>Budget</span></button>
-      <button class="sub-tab" onclick="showSub('montenegro','vie',this)"><span class="sub-tab-icon">🌊</span><span>Sur place</span></button>
+      <button class="stab active" onclick="goSub('sicile','vol',this)"><span class="si">✈️</span><span>Vol</span></button>
+      <button class="stab" onclick="goSub('sicile','logement',this)"><span class="si">🏨</span><span>Hôtel</span></button>
+      <button class="stab" onclick="goSub('sicile','voiture',this)"><span class="si">🚗</span><span>Voiture</span></button>
+      <button class="stab" onclick="goSub('sicile','budget',this)"><span class="si">💰</span><span>Budget</span></button>
+      <button class="stab" onclick="goSub('sicile','decouverte',this)"><span class="si">🌍</span><span>Découverte</span></button>
     </div>
+  </div>
 
-    <!-- VOL -->
-    <div id="montenegro-vol" class="sub-content active">
-      <div class="prop-block">
-        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">CDG ↔ TIV · 2 personnes</div></div><div class="prop-block-badge">530 €</div></div>
-        <div class="prop-block-body">
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">07:20</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">TIV</div><div class="vol-time">09:50</div><div class="vol-city-name">Tivat</div></div></div>
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">TIV</div><div class="vol-time">10:35</div><div class="vol-city-name">Tivat</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">13:10</div><div class="vol-city-name">Paris CDG</div></div></div>
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix vols · 2 pers.</div><div class="detail-value hl">530 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">265 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">⚠️</span><span>Pas de roaming UE — vérifiez votre opérateur ou achetez une SIM locale à l'aéroport.</span></div>
+  <!-- VOL -->
+  <div id="sicile-vol" class="sub-panel active">
+    <div class="card">
+      <div class="card-head bleu">
+        <div><div class="card-head-title">✈️ Vol aller-retour</div><div class="card-head-sub">Paris ↔ Catane · par personne</div></div>
+        <div class="card-badge">278 €</div>
+      </div>
+      <div class="card-body">
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">21:20</div><div class="vc-name">Paris CDG</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Aller · 1 août</div></div>
+          <div class="vol-city"><div class="vc-code">CTA</div><div class="vc-time">23:59</div><div class="vc-name">Catane</div></div>
         </div>
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">CTA</div><div class="vc-time">18:00</div><div class="vc-name">Catane</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Retour · 8 août</div></div>
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">20:55</div><div class="vc-name">Paris CDG</div></div>
+        </div>
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix par personne</div><div class="dval hl">278 €</div></div>
+          <div class="dcell"><div class="dlabel">Prix 2 personnes</div><div class="dval hl">556 €</div></div>
+          <div class="dcell"><div class="dlabel">Durée aller</div><div class="dval">~2h39</div></div>
+          <div class="dcell"><div class="dlabel">Aéroport</div><div class="dval">Catane Fontanarossa</div></div>
+        </div>
+        <div class="alert warn"><span class="alert-icon">⚠️</span><span>Vol aller de <strong>nuit</strong> (départ 21h20, arrivée 23h59). Prévoir hébergement dès la nuit du 1er août et transport depuis l'aéroport.</span></div>
       </div>
     </div>
+  </div>
 
-    <!-- LOGEMENT -->
-    <div id="montenegro-logement" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour le lien</div></div></div>
-        <div class="prop-block-body">
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hôtel Grbalj</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Budva</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">803 €</div><div class="heberg-ppn">≈ 115 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/me/grbalj.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Budva</div><div class="heberg-type">Appartement entier · Budva</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">769 €</div><div class="heberg-ppn">≈ 110 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/1390407460293945585" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-        </div>
+  <!-- LOGEMENT -->
+  <div id="sicile-logement" class="sub-panel">
+    <div class="card">
+      <div class="card-head or">
+        <div><div class="card-head-title">🏨 Hôtel · 7 nuits</div><div class="card-head-sub">Catane · Sicile</div></div>
       </div>
-    </div>
-
-    <!-- VOITURE -->
-    <div id="montenegro-voiture" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header turquoise"><div><div class="prop-block-title">🚗 Location de voiture</div><div class="prop-block-sub">7 nuits · 2 personnes</div></div><div class="prop-block-badge">≈ 252 €</div></div>
-        <div class="prop-block-body">
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix · 2 pers. / sem.</div><div class="detail-value hl">≈ 252 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">≈ 126 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">💡</span><span>La carte verte (assurance internationale) est souvent requise — vérifiez avec le loueur. Routes côtières parfois étroites.</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUDGET -->
-    <div id="montenegro-budget" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total · 2 personnes</div><div class="prop-block-sub">Vols + logement + voiture</div></div></div>
-        <div class="prop-block-body">
-          <div class="budget-row"><span class="budget-label">✈️ Vols (2 pers.)</span><span class="budget-val">530 €</span></div>
-          <div class="budget-row"><span class="budget-label">🚗 Location voiture</span><span class="budget-val">≈ 252 €</span></div>
-          <div style="height:0.75rem;"></div>
-          <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#BBB;font-weight:500;margin-bottom:0.6rem;">Selon le logement choisi</div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.6rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏨 Hôtel Grbalj</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">803 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1585 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 792 €/personne</div>
+      <div class="card-body">
+        <div class="hcard">
+          <div class="hcard-head" onclick="toggleH(this)">
+            <div><div class="hcard-name">🏨 Amaranda B&B Catania</div><div class="hcard-type">B&B · Catane · Sicile</div></div>
+            <div style="display:flex;align-items:center;gap:0.45rem;">
+              <div><div class="hcard-price">727 €</div><div class="hcard-ppn">≈ 104 €/nuit · 2 pers.</div></div>
+              <div class="hcard-chev">›</div>
+            </div>
           </div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏠 Airbnb Budva</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">769 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1551 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 775 €/personne</div>
+          <div class="hcard-body">
+            <a class="hlink" href="https://www.booking.com/hotel/it/amaranda-b-amp-b-catania.fr.html" target="_blank">
+              <span>🔗</span><span class="hlink-txt">Voir sur Booking.com</span><span class="hlink-arr">↗</span>
+            </a>
+            <div class="notes-list">
+              <div class="note-item"><span class="note-icon">🌿</span><span>Balcon privatif</span></div>
+              <div class="note-item"><span class="note-icon">🌊</span><span>Vue sur la mer</span></div>
+              <div class="note-item"><span class="note-icon">🌳</span><span>Vue sur le jardin</span></div>
+              <div class="note-item"><span class="note-icon">🏊</span><span>Piscine</span></div>
+              <div class="note-item"><span class="note-icon">🏖️</span><span>Proche Plage d'Ognina</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- VIE SUR PLACE -->
-    <div id="montenegro-vie" class="sub-content">
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Budva</div><div class="info-block-sub">Côte Adriatique monténégrine</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">30°C</div></div>
-      <div class="info-block">
-        <div class="info-block-header"><span class="info-block-icon">📸</span><div><div class="info-block-title">Photos</div><div class="info-block-sub">Aperçu des paysages</div></div></div>
-        <div class="info-block-body" style="padding:0.75rem;">
-          <div style="display:flex;gap:0.5rem;"><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sveti_Stefan_2.jpg/1280px-Sveti_Stefan_2.jpg" alt="Sveti Stefan" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Sveti Stefan</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Jaz_beach.JPG/1280px-Jaz_beach.JPG" alt="Jaz Beach" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Jaz Beach</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kotor_bay_from_Lovćen.jpg/1280px-Kotor_bay_from_Lovćen.jpg" alt="Baie de Kotor" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Baie de Kotor</div>
-        </div></div>
+  <!-- VOITURE -->
+  <div id="sicile-voiture" class="sub-panel">
+    <div class="card">
+      <div class="card-head turq">
+        <div><div class="card-head-title">🚗 Location de voiture</div><div class="card-head-sub">À partir de · 7 nuits</div></div>
+        <div class="card-badge">≈ 191 €</div>
+      </div>
+      <div class="card-body">
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix estimé / sem.</div><div class="dval hl">≈ 191 €</div></div>
+          <div class="dcell"><div class="dlabel">Par personne</div><div class="dval hl">≈ 96 €</div></div>
         </div>
-      </div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">21°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">25°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">10h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août chaud, sec et ensoleillé. Moins étouffant que la Sardaigne ou Malte. Mer Adriatique à température idéale. Quelques orages orageux possibles en fin de mois — spectaculaires sur les montagnes.</div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">⛰️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">La perle cachée des Balkans</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span><strong>Budva</strong> est la capitale touristique du Monténégro avec une vieille ville médiévale fortifiée donnant directement sur la mer Adriatique.</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Côte découpée avec plages de galets et de sable, baies cachées, eaux cristallines. Moins fréquenté et moins cher que la Grèce ou l'Italie.</span></div><div class="info-item"><span class="info-item-icon">💰</span><span>Prix <strong>significativement plus bas</strong> qu'en Europe occidentale : repas, activités, sorties. Excellent rapport qualité/prix pour un pays d'une beauté exceptionnelle.</span></div><div class="info-item"><span class="info-item-icon">🏔️</span><span>Paysages spectaculaires : fjord de <strong>Kotor</strong> (UNESCO), montagnes de Lovćen, lac de Skadar — tout à portée de voiture.</span></div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Côte Adriatique & arrière-pays</div></div></div><div class="info-block-body">
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Kotor & sa Baie — Classé UNESCO</div><div class="activite-type">30 min de Budva</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">L'un des joyaux de la Méditerranée. Baie en forme de fjord entourée de montagnes vertigineuses. Vieille ville médiévale de Kotor, ses remparts et ses fameux chats. Vue imprenable depuis les fortifications.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏖️</span><div><div class="activite-name">Sveti Stefan & Riviera monténégrine</div><div class="activite-type">10–20 min de Budva</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">L'île-hôtel de Sveti Stefan est l'icône absolue du Monténégro (vue libre depuis la plage). La riviera regorge de criques magnifiques : Jaz Beach, Mogren, Pržno, Bečići.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">⛵</span><div><div class="activite-name">Excursions en bateau</div><div class="activite-type">Port de Budva</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Nombreuses excursions : îles Notre-Dame-du-Rocher et Saint-Georges dans la baie de Kotor, grotte bleue, snorkeling. Env. 20–30 €/pers. pour une demi-journée.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦅</span><div><div class="activite-name">Parc national du Lovćen</div><div class="activite-type">45 min de Budva</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Vue à 360° sur la baie de Kotor et les Balkans depuis 1749m d'altitude. Un panorama renversant depuis le mausolée du prince-poète Njegoš. Route de montagne vertigineuse mais magnifique.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍽️</span><div><div class="activite-name">Gastronomie balkanique</div><div class="activite-type">Restaurants de Budva</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Ćevapi, pljeskavica, poisson frais de l'Adriatique, fromage Njeguški et prosciutto local. Repas complet pour 15–20 €/pers. Vins locaux (Vranac rouge, Krstač blanc) excellents et peu chers.</div></div>
-      </div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro (même hors UE). Cartes acceptées dans les hôtels et restaurants touristiques. Avoir du liquide pour marchés et petits commerces.</span></div><div class="info-item"><span class="info-item-icon">🛂</span><span><strong>Frontières :</strong> Hors UE mais pas de visa pour Français (90 j). Passeport ou CNI valide. <strong>Pas de roaming européen</strong> — vérifiez votre opérateur ou achetez une SIM locale.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Voiture :</strong> La carte verte (assurance internationale) est généralement requise — vérifiez avec le loueur. Routes côtières parfois étroites et sinueuses mais belles.</span></div></div></div>
+        <div class="alert"><span class="alert-icon">🚗</span><span>La voiture est <strong>fortement recommandée</strong> en Sicile pour explorer les sites archéologiques (Agrigente, Syracuse, Taormine), les plages isolées et l'Etna. Les transports publics entre villes sont lents et peu fréquents.</span></div>
+      </div>
     </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div id="sicile-budget" class="sub-panel">
+    <div class="card">
+      <div class="card-head fonce">
+        <div><div class="card-head-title">💰 Budget total · 2 personnes</div><div class="card-head-sub">Vols + hôtel + voiture · 7 nuits</div></div>
+      </div>
+      <div class="card-body">
+        <div class="brow"><span class="blabel">✈️ Vols (2 pers.)</span><span class="bval">556 €</span></div>
+        <div class="brow"><span class="blabel">🚗 Location voiture</span><span class="bval">≈ 191 €</span></div>
+        <div style="height:0.6rem;"></div>
+        <div class="bopt">
+          <div class="bopt-title">🏨 Amaranda B&B Catania</div>
+          <div class="brow"><span class="blabel">7 nuits · 2 pers.</span><span class="bval">727 €</span></div>
+          <div class="btotal-row"><span class="btotal-label">Total · 2 pers.</span><span class="btotal-val">1 474 €</span></div>
+          <div class="bpp">soit ≈ 737 €/personne</div>
+        </div>
+        <div class="alert"><span class="alert-icon">💡</span><span>Montant total suggéré dans votre tableau : <strong>1 474 €</strong>. Vols les plus avantageux du comparatif avec Séville. La Sicile offre un rapport qualité/prix excellent une fois sur place.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÉCOUVERTE -->
+  <div id="sicile-decouverte" class="sub-panel">
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌡️</span><div><div class="disco-title">Météo · Août à Catane</div><div class="disco-sub">Est de la Sicile · Méditerranée</div></div></div>
+      <div class="disco-body">
+        <div class="meteo-grid">
+          <div class="mc"><div class="mc-label">Max.</div><div class="mc-emoji">🔥</div><div class="mc-val">32°C</div></div>
+          <div class="mc"><div class="mc-label">Min.</div><div class="mc-emoji">🌙</div><div class="mc-val">23°C</div></div>
+          <div class="mc"><div class="mc-label">Mer</div><div class="mc-emoji">🏊</div><div class="mc-val">26°C</div></div>
+          <div class="mc"><div class="mc-label">Soleil</div><div class="mc-emoji">⏱️</div><div class="mc-val">12h/j</div></div>
+        </div>
+        <div style="font-size:0.8rem;color:#777;line-height:1.6;margin-top:0.8rem;">Août est le mois le plus chaud de l'année à Catane. La ville est dominée par l'Etna et bénéficie d'un ensoleillement exceptionnel. Quasi aucune pluie. Le sirocco (vent chaud d'Afrique) peut rendre certaines journées étouffantes.</div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌋</span><div><div class="disco-title">Présentation de Catane & la Sicile</div><div class="disco-sub">La ville de l'Etna</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">📍</span><span><strong>Catane</strong> est la deuxième ville de Sicile, bâtie au pied de l'<strong>Etna</strong>, le plus grand volcan actif d'Europe. Son centre baroque (classé UNESCO) est construit en lave noire volcanique — une esthétique absolument unique en Méditerranée.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🏛️</span><span>La Sicile est un véritable <strong>musée à ciel ouvert</strong> : temples grecs d'Agrigente (parmi les mieux préservés du monde), théâtre grec de Taormine, mosaïques romaines de Piazza Armerina, Palerme arabo-normande.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌊</span><span>Les côtes siciliennes offrent des plages extraordinaires : <strong>Plage d'Ognina</strong> à deux pas de l'hôtel, Isola Bella à Taormine, plages de sable noir volcanique uniques au monde.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🍝</span><span>La cuisine sicilienne est l'une des plus riches d'Italie : arancini, pasta alla Norma (née à Catane !), granita di caffè, cannoli, pistaches de Bronte. Un régal absolu à des prix très raisonnables.</span></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">📸</span><div><div class="disco-title">Photos</div><div class="disco-sub">Catane et la Sicile</div></div></div>
+      <div class="disco-body" style="padding:0.75rem;">
+        <div class="photos-strip">
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Catania_and_Mt_Etna.jpg/1280px-Catania_and_Mt_Etna.jpg" alt="Catane et l'Etna" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Catane & l'Etna</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Isola_Bella_Taormina.jpg/1280px-Isola_Bella_Taormina.jpg" alt="Taormine" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Isola Bella · Taormine</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Valle_dei_Templi.jpg/1280px-Valle_dei_Templi.jpg" alt="Agrigente" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Agrigente</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🎯</span><div><div class="disco-title">Incontournables</div><div class="disco-sub">Depuis Catane · Avec voiture</div></div></div>
+      <div class="disco-body">
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌋</span><div><div class="act-name">Ascension de l'Etna</div><div class="act-lieu">30 min de Catane</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Le volcan le plus actif d'Europe culmine à 3 357 m. Excursions guidées jusqu'au cratère sommital (à pied ou en téléphérique + 4x4). Vue imprenable sur la Méditerranée. Une expérience unique et inoubliable.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🏛️</span><div><div class="act-name">Taormine & son théâtre grec</div><div class="act-lieu">55 km de Catane</div></div><span class="tag cult">Culture</span></div><div class="act-desc">La ville la plus belle de Sicile, suspendue entre mer et montagne. Le théâtre grec antique avec l'Etna en toile de fond est l'un des plus beaux panoramas d'Italie. La plage d'Isola Bella est juste en contrebas.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🏛️</span><div><div class="act-name">Vallée des Temples · Agrigente</div><div class="act-lieu">160 km de Catane</div></div><span class="tag cult">Culture</span></div><div class="act-desc">Sept temples grecs du Ve siècle avant J.-C. parmi les mieux préservés au monde, classés UNESCO. Le Temple de la Concorde est souvent cité comme le temple grec le plus intact de toute la Méditerranée.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🏖️</span><div><div class="act-name">Plage d'Ognina & côte catanaise</div><div class="act-lieu">À 2 min de l'hôtel</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Plage volcanique à portée de l'hôtel. Le littoral autour de Catane offre des criques de lave noire et d'eau turquoise, une combinaison visuelle absolument extraordinaire. Parfait pour le snorkeling.</div></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">💡</span><div><div class="disco-title">Bon à savoir</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">🇪🇺</span><span><strong>Zone UE :</strong> Euro, roaming inclus, carte vitale valide. Aucune formalité particulière.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌡️</span><span><strong>Chaleur :</strong> Août est très chaud à Catane (jusqu'à 37°C les jours de sirocco). Prévoyez eau, crème solaire et chapeau. Visites culturelles à favoriser tôt le matin.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🚗</span><span><strong>Conduite :</strong> Les Siciliens conduisent de façon… expressive. Restez calme, évitez les ZTL (zones à circulation limitée) des centres historiques.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🍦</span><span><strong>Granita :</strong> La granita sicilienne au citron ou aux amandes avec une brioche est le petit-déjeuner local. Ne partez pas sans en avoir mangé une !</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- ========== RHODES ========== -->
-<div id="page-rhodes" class="page dest-page">
-  <div class="section-wrap">
-    <div class="section-header"><div class="section-tag">🇬🇷 Grèce · Dodécanèse</div><h2 class="section-title">Rhodes</h2></div>
-    
+<!-- ═══════════════════════════════════════════ -->
+<!-- TÉNÉRIFE -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-tenerife" class="page dest-page">
+  <div class="dest-hero">
+    <div class="dest-hero-tag">🌴 Espagne · Îles Canaries</div>
+    <div class="dest-hero-title">Ténérife</div>
+    <div class="dest-hero-sub">L'île éternelle aux mille paysages</div>
+  </div>
+
+  <div style="background:white;padding:0.5rem 0;">
     <div class="sub-tabs">
-      <button class="sub-tab active" onclick="showSub('rhodes','vol',this)"><span class="sub-tab-icon">✈️</span><span>Vol</span></button>
-      <button class="sub-tab" onclick="showSub('rhodes','logement',this)"><span class="sub-tab-icon">🏨</span><span>Logement</span></button>
-      <button class="sub-tab" onclick="showSub('rhodes','voiture',this)"><span class="sub-tab-icon">🚗</span><span>Voiture</span></button>
-      <button class="sub-tab" onclick="showSub('rhodes','budget',this)"><span class="sub-tab-icon">💰</span><span>Budget</span></button>
-      <button class="sub-tab" onclick="showSub('rhodes','vie',this)"><span class="sub-tab-icon">🌊</span><span>Sur place</span></button>
+      <button class="stab active" onclick="goSub('tenerife','vol',this)"><span class="si">✈️</span><span>Vol</span></button>
+      <button class="stab" onclick="goSub('tenerife','logement',this)"><span class="si">🏨</span><span>Hôtel</span></button>
+      <button class="stab" onclick="goSub('tenerife','voiture',this)"><span class="si">🚗</span><span>Voiture</span></button>
+      <button class="stab" onclick="goSub('tenerife','budget',this)"><span class="si">💰</span><span>Budget</span></button>
+      <button class="stab" onclick="goSub('tenerife','decouverte',this)"><span class="si">🌍</span><span>Découverte</span></button>
     </div>
+  </div>
 
-    <!-- VOL -->
-    <div id="rhodes-vol" class="sub-content active">
-      <div class="prop-block">
-        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">CDG ↔ RHO · 2 personnes</div></div><div class="prop-block-badge">425 €</div></div>
-        <div class="prop-block-body">
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">07:15</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">RHO</div><div class="vol-time">11:55</div><div class="vol-city-name">Rhodes</div></div></div>
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">RHO</div><div class="vol-time">12:50</div><div class="vol-city-name">Rhodes</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">15:45</div><div class="vol-city-name">Paris CDG</div></div></div>
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix vols · 2 pers.</div><div class="detail-value hl">425 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">212 €/pers.</div></div></div>
-          
+  <!-- VOL -->
+  <div id="tenerife-vol" class="sub-panel active">
+    <div class="card">
+      <div class="card-head bleu">
+        <div><div class="card-head-title">✈️ Vol aller-retour</div><div class="card-head-sub">Paris ↔ Ténérife · par personne</div></div>
+        <div class="card-badge">441 €</div>
+      </div>
+      <div class="card-body">
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">12:45</div><div class="vc-name">Paris CDG</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Aller · 1 août</div></div>
+          <div class="vol-city"><div class="vc-code">TFS</div><div class="vc-time">16:05</div><div class="vc-name">Ténérife Sud</div></div>
+        </div>
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">TFS</div><div class="vc-time">16:40</div><div class="vc-name">Ténérife Sud</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Retour · 8 août</div></div>
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">21:45</div><div class="vc-name">Paris CDG</div></div>
+        </div>
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix par personne</div><div class="dval hl">441 €</div></div>
+          <div class="dcell"><div class="dlabel">Prix 2 personnes</div><div class="dval hl">882 €</div></div>
+          <div class="dcell"><div class="dlabel">Durée aller</div><div class="dval">~3h20</div></div>
+          <div class="dcell"><div class="dlabel">Aéroport</div><div class="dval">Ténérife Sud (TFS)</div></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- LOGEMENT -->
-    <div id="rhodes-logement" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour le lien</div></div></div>
-        <div class="prop-block-body">
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏨 Hotel International</div><div class="heberg-type">Hôtel 3★ + petit-déjeuner · Rhodes</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">772 €</div><div class="heberg-ppn">≈ 110 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.booking.com/hotel/gr/international.fr.html" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Booking.com</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb Rhodes</div><div class="heberg-type">Appartement entier · Rhodes</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">810 €</div><div class="heberg-ppn">≈ 116 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/27721782" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-        </div>
+  <!-- LOGEMENT -->
+  <div id="tenerife-logement" class="sub-panel">
+    <div class="card">
+      <div class="card-head or">
+        <div><div class="card-head-title">🏨 Hôtel · 7 nuits</div><div class="card-head-sub">Ténérife · Panoramica Garden</div></div>
       </div>
-    </div>
-
-    <!-- VOITURE -->
-    <div id="rhodes-voiture" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header turquoise"><div><div class="prop-block-title">🚗 Location de voiture</div><div class="prop-block-sub">7 nuits · 2 personnes</div></div><div class="prop-block-badge">≈ 194 €</div></div>
-        <div class="prop-block-body">
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix · 2 pers. / sem.</div><div class="detail-value hl">≈ 194 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">≈ 97 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">💡</span><span>Voiture la moins chère du comparatif (194 €). Recommandée pour le sud de l'île (Lindos, Prasonisi).</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUDGET -->
-    <div id="rhodes-budget" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total · 2 personnes</div><div class="prop-block-sub">Vols + logement + voiture</div></div></div>
-        <div class="prop-block-body">
-          <div class="budget-row"><span class="budget-label">✈️ Vols (2 pers.)</span><span class="budget-val">425 €</span></div>
-          <div class="budget-row"><span class="budget-label">🚗 Location voiture</span><span class="budget-val">≈ 194 €</span></div>
-          <div style="height:0.75rem;"></div>
-          <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#BBB;font-weight:500;margin-bottom:0.6rem;">Selon le logement choisi</div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.6rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏨 Hotel International</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">772 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1391 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 695 €/personne</div>
+      <div class="card-body">
+        <div class="hcard">
+          <div class="hcard-head" onclick="toggleH(this)">
+            <div><div class="hcard-name">🏨 Panoramica Garden Hotel</div><div class="hcard-type">Hôtel · Ténérife</div></div>
+            <div style="display:flex;align-items:center;gap:0.45rem;">
+              <div><div class="hcard-price">447 €</div><div class="hcard-ppn">≈ 64 €/nuit · 2 pers.</div></div>
+              <div class="hcard-chev">›</div>
+            </div>
           </div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏠 Airbnb Rhodes</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">810 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1429 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 714 €/personne</div>
+          <div class="hcard-body">
+            <a class="hlink" href="https://www.booking.com/hotel/es/panoramica-garden.fr.html" target="_blank">
+              <span>🔗</span><span class="hlink-txt">Voir sur Booking.com</span><span class="hlink-arr">↗</span>
+            </a>
+            <div class="notes-list">
+              <div class="note-item"><span class="note-icon">🏠</span><span>Studio avec kitchenette</span></div>
+              <div class="note-item"><span class="note-icon">🍳</span><span>Petit-déjeuner inclus</span></div>
+              <div class="note-item"><span class="note-icon">🌊</span><span>À 400 m de l'océan</span></div>
+              <div class="note-item"><span class="note-icon">🌿</span><span>Balcon privatif</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- VIE SUR PLACE -->
-    <div id="rhodes-vie" class="sub-content">
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Rhodes</div><div class="info-block-sub">Île du Dodécanèse · Mer Égée</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">☀️</div><div class="meteo-val">33°C</div></div>
-      <div class="info-block">
-        <div class="info-block-header"><span class="info-block-icon">📸</span><div><div class="info-block-title">Photos</div><div class="info-block-sub">Aperçu des paysages</div></div></div>
-        <div class="info-block-body" style="padding:0.75rem;">
-          <div style="display:flex;gap:0.5rem;"><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Lindos_Rhodes_Greece.jpg/1280px-Lindos_Rhodes_Greece.jpg" alt="Lindos" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Lindos</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Prasonisi_Rhodes_Greece.jpg/1280px-Prasonisi_Rhodes_Greece.jpg" alt="Prasonisi" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Prasonisi</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rhodes_old_town.jpg/1280px-Rhodes_old_town.jpg" alt="Vieille Ville" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Vieille Ville</div>
-        </div></div>
+  <!-- VOITURE -->
+  <div id="tenerife-voiture" class="sub-panel">
+    <div class="card">
+      <div class="card-head turq">
+        <div><div class="card-head-title">🚗 Location de voiture</div><div class="card-head-sub">À partir de · 7 nuits</div></div>
+        <div class="card-badge">≈ 45 €</div>
+      </div>
+      <div class="card-body">
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix estimé / sem.</div><div class="dval hl">≈ 45 €</div></div>
+          <div class="dcell"><div class="dlabel">Par personne</div><div class="dval hl">≈ 23 €</div></div>
         </div>
-      </div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">24°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">26°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">12h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août = mois le plus chaud et le plus ensoleillé. Le vent Meltemi (vent du nord) souffle régulièrement — rafraîchissant mais peut perturber les excursions en bateau. Quasi aucune pluie.</div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏛️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">L'île des Chevaliers</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Île grecque à la frontière de la Turquie. <strong>La ville de Rhodes</strong> possède l'une des plus belles villes médiévales fortifiées du monde (UNESCO).</span></div><div class="info-item"><span class="info-item-icon">🌊</span><span>Côte ouest plus venteuse (Meltemi), côte est plus calme. <strong>Plus belles plages</strong> au sud de l'île : Prasonisi, Lindos, Agios Pavlos.</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Histoire fascinante : Chevaliers de Saint-Jean, site du Colosse (7e merveille du monde), Acropole de Lindos perchée au-dessus de la mer turquoise.</span></div><div class="info-item"><span class="info-item-icon">🇪🇺</span><span>Zone UE — roaming téléphonique inclus, euro, pas de formalités douanières, carte vitale valide.</span></div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Ville de Rhodes & toute l'île</div></div></div><div class="info-block-body">
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">Vieille Ville médiévale de Rhodes</div><div class="activite-type">Au cœur de la ville</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">La vieille ville la mieux préservée d'Europe médiévale, classée UNESCO. Palais des Grands Maîtres, Rue des Chevaliers, bazars, ruelles ottomanes. Magique en soirée sous les lumières dorées.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏛️</span><div><div class="activite-name">Acropole & Village de Lindos</div><div class="activite-type">50 km de la ville</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Village blanc emblématique perché avec une acropole antique dominant une mer turquoise à couper le souffle. L'une des images les plus iconiques de Grèce. Évitez les heures les plus chaudes.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏄</span><div><div class="activite-name">Prasonisi — Pointe sud, kitesurf</div><div class="activite-type">85 km de la ville</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">La pointe extrême sud où se rejoignent mer Égée et Méditerranée. Plage mythique pour kitesurf et windsurf (côté ouest) et baignade calme (côté est). Paysage spectaculaire en fin de journée.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🦋</span><div><div class="activite-name">Vallée des Papillons</div><div class="activite-type">25 km de la ville</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">Gorge luxuriante abritant des milliers de papillons en été. Fraîcheur et sérénité dans ce canyon verdoyant — une pause précieuse lors des fortes chaleurs d'août.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍷</span><div><div class="activite-name">Gastronomie grecque</div><div class="activite-type">Tavernes locales</div></div><span class="tag gastro">Gastronomie</span></div><div class="activite-desc">Mézés, moussaka, souvlaki, poulpe séché, feta, vins locaux (Muscat de Rhodes). Les tavernes dans les ruelles de la vieille ville offrent une cuisine authentique. Réservez les bonnes en avance.</div></div>
-      </div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Zone UE, roaming inclus. Cartes acceptées partout. Carte vitale valide.</span></div><div class="info-item"><span class="info-item-icon">🌬️</span><span><strong>Vent Meltemi :</strong> Fort vent du nord pouvant souffler plusieurs jours consécutifs. Rafraîchissant mais peut perturber les excursions en mer.</span></div><div class="info-item"><span class="info-item-icon">⚡</span><span><strong>Haute saison :</strong> Août = plein été grec. Réservez restaurants populaires et excursions à l'avance. Visitez les sites tôt le matin.</span></div></div></div>
+        <div class="alert"><span class="alert-icon">🌴</span><span>La voiture la <strong>moins chère</strong> du comparatif (45 €) ! Indispensable pour explorer le parc national du Teide, les forêts de lauriers et les plages du nord et du sud. La location à Ténérife est très compétitive.</span></div>
+      </div>
     </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div id="tenerife-budget" class="sub-panel">
+    <div class="card">
+      <div class="card-head fonce">
+        <div><div class="card-head-title">💰 Budget total · 2 personnes</div><div class="card-head-sub">Vols + hôtel + voiture · 7 nuits</div></div>
+      </div>
+      <div class="card-body">
+        <div class="brow"><span class="blabel">✈️ Vols (2 pers.)</span><span class="bval">882 €</span></div>
+        <div class="brow"><span class="blabel">🚗 Location voiture</span><span class="bval">≈ 45 €</span></div>
+        <div style="height:0.6rem;"></div>
+        <div class="bopt">
+          <div class="bopt-title">🏨 Panoramica Garden Hotel</div>
+          <div class="brow"><span class="blabel">7 nuits · 2 pers.</span><span class="bval">447 €</span></div>
+          <div class="btotal-row"><span class="btotal-label">Total · 2 pers.</span><span class="btotal-val">1 374 €</span></div>
+          <div class="bpp">soit ≈ 687 €/personne</div>
+        </div>
+        <div class="alert"><span class="alert-icon">💡</span><span>Montant total suggéré dans votre tableau : <strong>1 374 €</strong>. Voiture la moins chère du comparatif (45 €). Le logement (447 €) est également très avantageux pour 7 nuits.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÉCOUVERTE -->
+  <div id="tenerife-decouverte" class="sub-panel">
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌡️</span><div><div class="disco-title">Météo · Août à Ténérife</div><div class="disco-sub">Îles Canaries · Atlantique</div></div></div>
+      <div class="disco-body">
+        <div class="meteo-grid">
+          <div class="mc"><div class="mc-label">Max.</div><div class="mc-emoji">☀️</div><div class="mc-val">27°C</div></div>
+          <div class="mc"><div class="mc-label">Min.</div><div class="mc-emoji">🌙</div><div class="mc-val">20°C</div></div>
+          <div class="mc"><div class="mc-label">Océan</div><div class="mc-emoji">🏊</div><div class="mc-val">23°C</div></div>
+          <div class="mc"><div class="mc-label">Soleil</div><div class="mc-emoji">⏱️</div><div class="mc-val">9h/j</div></div>
+        </div>
+        <div style="font-size:0.8rem;color:#777;line-height:1.6;margin-top:0.8rem;">Ténérife jouit d'un climat exceptionnel : chaud mais jamais étouffant grâce aux alizés atlantiques. Août au sud de l'île est très ensoleillé (peu de nuages), tandis que le nord et les hauteurs sont plus frais et verdoyants. Une seule île, deux micro-climats.</div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌴</span><div><div class="disco-title">Présentation de Ténérife</div><div class="disco-sub">La plus grande île des Canaries</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">📍</span><span>Ténérife est la <strong>plus grande île de l'archipel des Canaries</strong> (Espagne), située dans l'Atlantique à 300 km au large du Maroc. Elle offre une diversité de paysages unique : plages, forêts laurisylves, déserts de lave, et un volcan à 3 715 m.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌋</span><span>Le <strong>Mont Teide</strong> (3 715 m) est le plus haut sommet d'Espagne et le troisième plus grand volcan de la planète. Son parc national est classé UNESCO et offre des paysages lunaires absolument saisissants.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🏖️</span><span>Deux types de plages : les <strong>plages de sable noir volcanique</strong> au nord (Benijo, Punta del Hidalgo) et les grandes stations balnéaires du sud avec sable blanc importé (Las Américas, Los Cristianos).</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌿</span><span>La <strong>forêt laurisylve d'Anaga</strong> au nord-est est classée UNESCO et Réserve mondiale de biosphère. Randonnées dans une forêt préhistorique de fougères et de bruyères géantes, enveloppée de brume.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🇪🇺</span><span>Île espagnole, zone UE, euro, roaming inclus. Mais <strong>attention</strong> : TVA différente (7% au lieu de 21%), pas de taxes de séjour imposées, et les prix de l'alcool et du tabac sont bien inférieurs.</span></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">📸</span><div><div class="disco-title">Photos</div><div class="disco-sub">Ténérife · Îles Canaries</div></div></div>
+      <div class="disco-body" style="padding:0.75rem;">
+        <div class="photos-strip">
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Teide_desde_Iza%C3%B1a.jpg/1280px-Teide_desde_Iza%C3%B1a.jpg" alt="Le Teide" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Le Teide</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Playa_de_Benijo.jpg/1280px-Playa_de_Benijo.jpg" alt="Plage de Benijo" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Plage de Benijo</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Los_Gigantes_cliffs.jpg/1280px-Los_Gigantes_cliffs.jpg" alt="Los Gigantes" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Los Gigantes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🎯</span><div><div class="disco-title">Incontournables</div><div class="disco-sub">Avec voiture · Tour de l'île</div></div></div>
+      <div class="disco-body">
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌋</span><div><div class="act-name">Parc national du Teide</div><div class="act-lieu">Centre de l'île · 1h en voiture</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Paysage lunaire rouge et orange autour du cratère sommital. Téléphérique jusqu'à 3 555 m (réservation obligatoire, plusieurs mois à l'avance en août !). L'un des sites naturels les plus visités d'Europe.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🐋</span><div><div class="act-name">Observation des baleines et dauphins</div><div class="act-lieu">Départs depuis Los Cristianos</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Le canal entre Ténérife et La Gomera est l'un des rares endroits au monde où baleines pilotes et dauphins cohabitent toute l'année. Excursions en bateau depuis 30 € — une expérience magique à ne pas manquer.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌿</span><div><div class="act-name">Forêt d'Anaga & villages du nord</div><div class="act-lieu">Nord-Est de l'île · 40 min</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Randonnées dans l'une des dernières forêts primaires d'Europe, classée UNESCO. Villages de montagne perchés, vue sur l'océan, plages sauvages de sable noir inaccessibles autrement qu'à pied.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌅</span><div><div class="act-name">Los Gigantes — Falaises verticales</div><div class="act-lieu">Côte Ouest · 45 min</div></div><span class="tag nat">Nature</span></div><div class="act-desc">Falaises de basalte noir plongeant à pic dans l'océan depuis 800 mètres. Le coucher de soleil depuis le village de Los Gigantes est l'un des plus spectaculaires de l'Atlantique.</div></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">💡</span><div><div class="disco-title">Bon à savoir</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">🇪🇺</span><span><strong>Zone UE :</strong> Euro, roaming inclus, carte vitale valide. Territoire espagnol mais fiscalité différente (zona franca).</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌋</span><span><strong>Téléphérique du Teide :</strong> Réservation <em>obligatoire</em> bien à l'avance sur le site officiel — complet des semaines en avance en août.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🏖️</span><span><strong>Nord vs Sud :</strong> Le sud (Los Cristianos, Las Américas) est plus touristique et ensoleillé. Le nord (Puerto de la Cruz) est plus vert, plus authentique et plus frais.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🐠</span><span><strong>Snorkeling :</strong> Le Parc marin de Teno et la Plage du Puertito abritent des tortues marines facilement observables à la surface.</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- ========== MALTE ========== -->
-<div id="page-malte" class="page dest-page">
-  <div class="section-wrap">
-    <div class="section-header"><div class="section-tag">🇲🇹 Malte · La Valette</div><h2 class="section-title">Malte</h2></div>
-    
+<!-- ═══════════════════════════════════════════ -->
+<!-- ESPAGNE / SÉVILLE -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-espagne" class="page dest-page">
+  <div class="dest-hero">
+    <div class="dest-hero-tag">💃 Espagne · Andalousie</div>
+    <div class="dest-hero-title">Séville</div>
+    <div class="dest-hero-sub">La capitale du flamenco et de la feria</div>
+  </div>
+
+  <div style="background:white;padding:0.5rem 0;">
     <div class="sub-tabs">
-      <button class="sub-tab active" onclick="showSub('malte','vol',this)"><span class="sub-tab-icon">✈️</span><span>Vol</span></button>
-      <button class="sub-tab" onclick="showSub('malte','logement',this)"><span class="sub-tab-icon">🏨</span><span>Logement</span></button>
-      <button class="sub-tab" onclick="showSub('malte','voiture',this)"><span class="sub-tab-icon">🚗</span><span>Voiture</span></button>
-      <button class="sub-tab" onclick="showSub('malte','budget',this)"><span class="sub-tab-icon">💰</span><span>Budget</span></button>
-      <button class="sub-tab" onclick="showSub('malte','vie',this)"><span class="sub-tab-icon">🌊</span><span>Sur place</span></button>
-    </div>
-
-    <!-- VOL -->
-    <div id="malte-vol" class="sub-content active">
-      <div class="prop-block">
-        <div class="prop-block-header"><div><div class="prop-block-title">✈️ Vol aller-retour</div><div class="prop-block-sub">CDG ↔ MLA · 2 personnes</div></div><div class="prop-block-badge">257 €</div></div>
-        <div class="prop-block-body">
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">20:55</div><div class="vol-city-name">Paris CDG</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Aller · 1 août</div></div><div class="vol-city"><div class="vol-code">MLA</div><div class="vol-time">23:35</div><div class="vol-city-name">La Valette</div></div></div>
-          <div class="vol-route"><div class="vol-city"><div class="vol-code">MLA</div><div class="vol-time">13:45</div><div class="vol-city-name">La Valette</div></div><div class="vol-arrow"><div class="vol-line"></div><div class="vol-duration">Retour · 8 août</div></div><div class="vol-city"><div class="vol-code">CDG</div><div class="vol-time">16:40</div><div class="vol-city-name">Paris CDG</div></div></div>
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix vols · 2 pers.</div><div class="detail-value hl">257 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">128 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">⚠️</span><span>Vol aller de nuit — arrivée à 23h35. Prévoyez le transport depuis l'aéroport et l'hébergement dès la nuit du 1er août.</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LOGEMENT -->
-    <div id="malte-logement" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header or"><div><div class="prop-block-title">🏨 Hébergement · 7 nuits</div><div class="prop-block-sub">2 options · cliquez pour le lien</div></div></div>
-        <div class="prop-block-body">
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏊 Airbnb avec piscine</div><div class="heberg-type">Appartement avec piscine · St Julian's</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">1067 €</div><div class="heberg-ppn">≈ 152 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/51631675" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb (avec piscine)</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-          <div class="heberg-card">
-            <div class="heberg-header" onclick="toggleHeberg(this)"><div><div class="heberg-name">🏠 Airbnb standard</div><div class="heberg-type">Appartement entier · Malte</div></div><div style="display:flex;align-items:center;gap:0.5rem;"><div><div class="heberg-price">745 €</div><div class="heberg-ppn">≈ 106 €/nuit · 2 pers.</div></div><div class="heberg-chevron">›</div></div></div>
-            <div class="heberg-body"><a class="heberg-link" href="https://www.airbnb.fr/rooms/1607488326019602271" target="_blank"><span class="heberg-link-icon">🔗</span><span class="heberg-link-text">Voir sur Airbnb</span><span class="heberg-link-arrow">↗</span></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VOITURE -->
-    <div id="malte-voiture" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header turquoise"><div><div class="prop-block-title">🚗 Location de voiture</div><div class="prop-block-sub">7 nuits · 2 personnes</div></div><div class="prop-block-badge">≈ 70 €</div></div>
-        <div class="prop-block-body">
-          <div class="details-grid"><div class="detail-cell"><div class="detail-label">Prix · 2 pers. / sem.</div><div class="detail-value hl">≈ 70 €</div></div><div class="detail-cell"><div class="detail-label">Par personne</div><div class="detail-value hl">≈ 35 €/pers.</div></div></div>
-          <div class="alert-box"><span class="alert-icon">💡</span><span>Voiture la moins chère du comparatif (70 €). Attention : conduite à gauche (ancienne colonie britannique).</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUDGET -->
-    <div id="malte-budget" class="sub-content">
-      <div class="prop-block">
-        <div class="prop-block-header fonce"><div><div class="prop-block-title">💰 Budget total · 2 personnes</div><div class="prop-block-sub">Vols + logement + voiture</div></div></div>
-        <div class="prop-block-body">
-          <div class="budget-row"><span class="budget-label">✈️ Vols (2 pers.)</span><span class="budget-val">257 €</span></div>
-          <div class="budget-row"><span class="budget-label">🚗 Location voiture</span><span class="budget-val">≈ 70 €</span></div>
-          <div style="height:0.75rem;"></div>
-          <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#BBB;font-weight:500;margin-bottom:0.6rem;">Selon le logement choisi</div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.6rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏊 Airbnb avec piscine</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">1067 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1394 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 697 €/personne</div>
-          </div>
-          <div style="background:var(--light-bg);border-radius:12px;padding:0.9rem 1rem;margin-bottom:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.45rem;"><span style="font-size:0.84rem;font-weight:600;color:var(--fonce);">🏠 Airbnb standard</span><span style="font-size:0.88rem;font-weight:600;color:var(--mid);">745 €</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid white;padding-top:0.5rem;"><span style="font-size:0.9rem;font-weight:700;color:var(--fonce);">Total · 2 pers.</span><span style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--bleu);">≈ 1072 €</span></div>
-            <div style="text-align:right;font-size:0.72rem;color:var(--mid);margin-top:0.12rem;">soit ≈ 536 €/personne</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIE SUR PLACE -->
-    <div id="malte-vie" class="sub-content">
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🌡️</span><div><div class="info-block-title">Météo · Août à Malte</div><div class="info-block-sub">Archipel maltais · Méditerranée centrale</div></div></div><div class="info-block-body"><div class="meteo-grid"><div class="meteo-cell"><div class="meteo-label">Max.</div><div class="meteo-emoji">🔥</div><div class="meteo-val">34°C</div></div>
-      <div class="info-block">
-        <div class="info-block-header"><span class="info-block-icon">📸</span><div><div class="info-block-title">Photos</div><div class="info-block-sub">Aperçu des paysages</div></div></div>
-        <div class="info-block-body" style="padding:0.75rem;">
-          <div style="display:flex;gap:0.5rem;"><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/BluelagoonMalta.jpg/1280px-BluelagoonMalta.jpg" alt="Lagon Bleu · Comino" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Lagon Bleu · Comino</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Valletta_Malta_Grand_Harbour.jpg/1280px-Valletta_Malta_Grand_Harbour.jpg" alt="La Valette" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">La Valette</div>
-        </div><div style="flex:1;min-width:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Gozo_Wied_il-Mielah_window.jpg/1280px-Gozo_Wied_il-Mielah_window.jpg" alt="Gozo" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.4rem 0.6rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));font-size:0.68rem;color:white;font-weight:500;">Gozo</div>
-        </div></div>
-        </div>
-      </div><div class="meteo-cell"><div class="meteo-label">Min.</div><div class="meteo-emoji">🌙</div><div class="meteo-val">24°C</div></div><div class="meteo-cell"><div class="meteo-label">Mer</div><div class="meteo-emoji">🏊</div><div class="meteo-val">27°C</div></div><div class="meteo-cell"><div class="meteo-label">Soleil</div><div class="meteo-emoji">⏱️</div><div class="meteo-val">12h/j</div></div></div><div style="font-size:0.82rem;color:#777;line-height:1.6;margin-top:0.85rem;">Août est le mois le plus chaud — parfois très éprouvant. Mer à 27°C, la plus chaude du comparatif ! Quasi aucune pluie. Les pierres blanches de l'île réverbèrent fortement la chaleur.</div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🏛️</span><div><div class="info-block-title">Présentation</div><div class="info-block-sub">L'île des Chevaliers de l'Ordre de Malte</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">📍</span><span>Archipel de 3 îles au cœur de la Méditerranée. <strong>La Valette</strong> (capitale UNESCO), <strong>Gozo</strong> (île verdoyante) et <strong>Comino</strong> (Lagon Bleu). L'île principale ne fait que 27 km de long.</span></div><div class="info-item"><span class="info-item-icon">🇬🇧</span><span>Anglais et maltais officiels — idéal pour les anglophones. <strong>Conduite à gauche</strong> (ancienne colonie britannique).</span></div><div class="info-item"><span class="info-item-icon">🏛️</span><span>Histoire de <strong>7 000 ans</strong> : temples mégalithiques (plus anciens que Stonehenge), catacombes, 3 sites UNESCO, bastions des Chevaliers.</span></div><div class="info-item"><span class="info-item-icon">🚗</span><span>Voiture pratique mais bus publics (1,50 €/trajet) couvrent toute l'île. Ferry vers Gozo (6 €) incontournable.</span></div></div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">🎯</span><div><div class="info-block-title">Activités & incontournables</div><div class="info-block-sub">Malte, Gozo & Comino</div></div></div><div class="info-block-body">
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">💎</span><div><div class="activite-name">Lagon Bleu de Comino</div><div class="activite-type">Traversée en ferry 25 min</div></div><span class="tag nature">Nature</span></div><div class="activite-desc">L'eau la plus turquoise et transparente de Méditerranée. Incontournable MAIS très fréquenté en août — arrivez avant 9h pour la magie. Des opérateurs proposent des excursions en bateau avec snorkeling.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏰</span><div><div class="activite-name">La Valette — Capitale UNESCO</div><div class="activite-type">Centre de l'île principale</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Capitale baroque entièrement classée UNESCO. Co-Cathédrale Saint-Jean avec toiles de Caravage, bastions spectaculaires, jardins Barrakka avec vue sur le Grand Port. Ville piétonne et très vivante.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🤿</span><div><div class="activite-name">Plongée — Épaves & grottes marines</div><div class="activite-type">Toute l'île</div></div><span class="tag sport">Sport</span></div><div class="activite-desc">Malte est l'une des meilleures destinations de plongée en Europe. Épaves de la 2e GM, grottes sous-marines, visibilité exceptionnelle. Nombreux centres à St Julian's. Idéal même pour débutants.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🏛️</span><div><div class="activite-name">Temples de Ġgantija — Gozo</div><div class="activite-type">Île de Gozo (ferry 25 min)</div></div><span class="tag culture">Culture</span></div><div class="activite-desc">Les temples les plus anciens du monde (3600 av. J.-C.) — plus vieux que les pyramides d'Égypte et Stonehenge. Gozo est une île plus verte et authentique. Une journée entière mérite d'y être consacrée.</div></div>
-        <div class="activite-item"><div class="activite-header"><span class="activite-emoji">🍻</span><div><div class="activite-name">St Julian's & Paceville — Vie nocturne</div><div class="activite-type">Quartier de St Julian's</div></div><span class="tag detente">Détente</span></div><div class="activite-desc">Malte a l'une des meilleures vies nocturnes de Méditerranée. Bars, clubs et restaurants ouverts jusqu'à l'aube. Le quartier de Paceville est le centre de l'animation estivale.</div></div>
-      </div></div>
-      <div class="info-block"><div class="info-block-header"><span class="info-block-icon">💡</span><div><div class="info-block-title">Bon à savoir</div></div></div><div class="info-block-body"><div class="info-item"><span class="info-item-icon">🚗</span><span><strong>Conduite à gauche !</strong> Ancienne colonie britannique. Prenez le temps de vous adapter avant de prendre le volant. Routes souvent étroites et encombrées en août.</span></div><div class="info-item"><span class="info-item-icon">💶</span><span><strong>Monnaie :</strong> Euro. Zone UE, roaming inclus, carte vitale valide. Légèrement plus cher que la moyenne méditerranéenne en haute saison.</span></div><div class="info-item"><span class="info-item-icon">⛴️</span><span><strong>Ferry Gozo :</strong> 25 min depuis Ċirkewwa, toutes les 45 min. Indispensable pour Gozo. Réservez à l'avance en août.</span></div><div class="info-item"><span class="info-item-icon">☀️</span><span><strong>Chaleur :</strong> Très intense en août. Crème solaire haute protection obligatoire. Prévoyez une bouteille d'eau partout avec vous.</span></div></div></div>
+      <button class="stab active" onclick="goSub('espagne','vol',this)"><span class="si">✈️</span><span>Vol</span></button>
+      <button class="stab" onclick="goSub('espagne','logement',this)"><span class="si">🏨</span><span>Hôtel</span></button>
+      <button class="stab" onclick="goSub('espagne','voiture',this)"><span class="si">🚗</span><span>Voiture</span></button>
+      <button class="stab" onclick="goSub('espagne','budget',this)"><span class="si">💰</span><span>Budget</span></button>
+      <button class="stab" onclick="goSub('espagne','decouverte',this)"><span class="si">🌍</span><span>Découverte</span></button>
     </div>
   </div>
+
+  <!-- VOL -->
+  <div id="espagne-vol" class="sub-panel active">
+    <div class="card">
+      <div class="card-head bleu">
+        <div><div class="card-head-title">✈️ Vol aller-retour</div><div class="card-head-sub">Paris ↔ Séville · par personne</div></div>
+        <div class="card-badge">255 €</div>
+      </div>
+      <div class="card-body">
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">14:45</div><div class="vc-name">Paris CDG</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Aller · 1 août</div></div>
+          <div class="vol-city"><div class="vc-code">SVQ</div><div class="vc-time">17:10</div><div class="vc-name">Séville</div></div>
+        </div>
+        <div class="vol-route">
+          <div class="vol-city"><div class="vc-code">SVQ</div><div class="vc-time">18:05</div><div class="vc-name">Séville</div></div>
+          <div class="vol-mid"><div class="vol-line"></div><div class="vol-dir">Retour · 8 août</div></div>
+          <div class="vol-city"><div class="vc-code">CDG</div><div class="vc-time">20:35</div><div class="vc-name">Paris CDG</div></div>
+        </div>
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Prix par personne</div><div class="dval hl">255 €</div></div>
+          <div class="dcell"><div class="dlabel">Prix 2 personnes</div><div class="dval hl">510 €</div></div>
+          <div class="dcell"><div class="dlabel">Durée aller</div><div class="dval">~2h25</div></div>
+          <div class="dcell"><div class="dlabel">Aéroport</div><div class="dval">Séville (SVQ)</div></div>
+        </div>
+        <div class="alert"><span class="alert-icon">✦</span><span>Vol le <strong>moins cher</strong> du comparatif avec Séville (255 €/pers.). Horaires idéaux : départ en début d'après-midi, retour en soirée.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGEMENT -->
+  <div id="espagne-logement" class="sub-panel">
+    <div class="card">
+      <div class="card-head or">
+        <div><div class="card-head-title">🏨 Hôtel · 7 nuits</div><div class="card-head-sub">Séville · Hôtel boutique 4-5★</div></div>
+      </div>
+      <div class="card-body">
+        <div class="hcard">
+          <div class="hcard-head" onclick="toggleH(this)">
+            <div><div class="hcard-name">🏨 Hotel Rey Alfonso X</div><div class="hcard-type">Hôtel 4★ · Centre historique · Séville</div></div>
+            <div style="display:flex;align-items:center;gap:0.45rem;">
+              <div><div class="hcard-price">840 €</div><div class="hcard-ppn">≈ 120 €/nuit · 2 pers.</div></div>
+              <div class="hcard-chev">›</div>
+            </div>
+          </div>
+          <div class="hcard-body">
+            <a class="hlink" href="https://www.booking.com/hotel/es/reyalfonsox.fr.html?label=gen173nr-10CAEoggI46AdIDVgEaE2IAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4Auuq9NEGwAIB0gIkZTA5NmNhZjUtNWEyMi00MWY5LThkMTMtYmVmNmFjMmExOGNl2AIB4AIB&aid=304142&ucfs=1&checkin=2026-08-01&checkout=2026-08-08&dest_id=908&dest_type=region&group_adults=2&no_rooms=1&group_children=0&nflt=price%3DEUR-min-150-1%3Bhotelfacility%3D433%3Bht_id%3D204%3Bclass%3D5%3Bclass%3D4%3Bmealplan%3D1&srpvid=7d5756187c73020a&srepoch=1782394744&matching_block_id=9104302_266119069_0_1_0_692607&atlas_src=sr_iw_title" target="_blank">
+              <span>🔗</span><span class="hlink-txt">Voir sur Booking.com</span><span class="hlink-arr">↗</span>
+            </a>
+            <div class="notes-list">
+              <div class="note-item"><span class="note-icon">🍳</span><span>Petit-déjeuner inclus</span></div>
+              <div class="note-item"><span class="note-icon">📍</span><span>Cœur du centre historique de Séville</span></div>
+              <div class="note-item"><span class="note-icon">🏊</span><span>Piscine sur le toit</span></div>
+              <div class="note-item"><span class="note-icon">⭐</span><span>Hôtel 4 étoiles</span></div>
+              <div class="note-item"><span class="note-icon">🏰</span><span>À deux pas de la Cathédrale et de l'Alcazar</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOITURE -->
+  <div id="espagne-voiture" class="sub-panel">
+    <div class="card">
+      <div class="card-head turq">
+        <div><div class="card-head-title">🚗 Location de voiture</div><div class="card-head-sub">Non nécessaire à Séville</div></div>
+        <div class="card-badge">0 €</div>
+      </div>
+      <div class="card-body">
+        <div class="dgrid">
+          <div class="dcell"><div class="dlabel">Coût voiture</div><div class="dval or">0 € inclus</div></div>
+          <div class="dcell"><div class="dlabel">Économie vs autres</div><div class="dval hl">45–191 €</div></div>
+        </div>
+        <div class="alert"><span class="alert-icon">🚲</span><span>Séville est l'une des villes les plus cyclables d'Espagne — réseau de pistes cyclables étendu, vélos en libre-service (Sevici). Le centre historique se visite entièrement à pied. Pour les excursions en Andalousie, des navettes et trains relient facilement Cordoue et d'autres villes.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div id="espagne-budget" class="sub-panel">
+    <div class="card">
+      <div class="card-head fonce">
+        <div><div class="card-head-title">💰 Budget total · 2 personnes</div><div class="card-head-sub">Vols + hôtel + voiture · 7 nuits</div></div>
+      </div>
+      <div class="card-body">
+        <div class="brow"><span class="blabel">✈️ Vols (2 pers.)</span><span class="bval">510 €</span></div>
+        <div class="brow"><span class="blabel">🚗 Voiture</span><span class="bval" style="color:var(--turquoise);">0 € (non nécessaire)</span></div>
+        <div style="height:0.6rem;"></div>
+        <div class="bopt">
+          <div class="bopt-title">🏨 Hotel Rey Alfonso X</div>
+          <div class="brow"><span class="blabel">7 nuits · 2 pers.</span><span class="bval">840 €</span></div>
+          <div class="btotal-row"><span class="btotal-label">Total · 2 pers.</span><span class="btotal-val">1 350 €</span></div>
+          <div class="bpp">soit ≈ 675 €/personne</div>
+        </div>
+        <div class="alert"><span class="alert-icon">💡</span><span>Sans voiture, Séville devient bien plus compétitive ! Vols les moins chers du comparatif (255 €/pers.) + hôtel 4★ en plein centre historique.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÉCOUVERTE -->
+  <div id="espagne-decouverte" class="sub-panel">
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🌡️</span><div><div class="disco-title">Météo · Août à Séville</div><div class="disco-sub">Andalousie · Sud de l'Espagne</div></div></div>
+      <div class="disco-body">
+        <div class="meteo-grid">
+          <div class="mc"><div class="mc-label">Max.</div><div class="mc-emoji">🔥</div><div class="mc-val">37°C</div></div>
+          <div class="mc"><div class="mc-label">Min.</div><div class="mc-emoji">🌙</div><div class="mc-val">22°C</div></div>
+          <div class="mc"><div class="mc-label">Rivière</div><div class="mc-emoji">🏊</div><div class="mc-val">✗</div></div>
+          <div class="mc"><div class="mc-label">Soleil</div><div class="mc-emoji">⏱️</div><div class="mc-val">12h/j</div></div>
+        </div>
+        <div style="font-size:0.8rem;color:#777;line-height:1.6;margin-top:0.8rem;">Séville est la ville la plus chaude d'Europe en été — les températures dépassent régulièrement 40°C en août. La chaleur est sèche mais intense. Idéalement, planifiez les visites tôt le matin et en soirée. Les nuits sont douces et animées.</div>
+        <div class="alert warn" style="margin-top:0.75rem;"><span class="alert-icon">🌡️</span><span>Séville est la destination la <strong>plus chaude du comparatif</strong>. Prévoir absolument : eau en permanence, crème solaire 50+, vêtements légers. Les visites culturelles en plein air sont éprouvantes entre 11h et 18h.</span></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">💃</span><div><div class="disco-title">Présentation de Séville</div><div class="disco-sub">Capitale de l'Andalousie</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">📍</span><span><strong>Séville</strong> est la quatrième plus grande ville d'Espagne et la capitale de l'Andalousie. Bâtie sur les rives du Guadalquivir, c'est la ville du flamenco, de la corrida, des azulejos et des orangers — une identité visuelle et culturelle incomparable.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🏰</span><span>Trois sites classés <strong>UNESCO</strong> dans un rayon de 500 m : la Cathédrale (la plus grande cathédrale gothique du monde), l'Alcazar (palais mudéjar habité par la famille royale espagnole) et les Archives des Indes.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌸</span><span>Le quartier de <strong>Santa Cruz</strong>, ancien quartier juif, est un labyrinthe de ruelles blanches fleuries de géraniums, de patios ombragés et de petites places où les soirées ne finissent jamais.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🍷</span><span>La <strong>gastronomie sévillane</strong> est une institution : tapas de jamón ibérico, pescaíto frito, gazpacho andalou, tortilla, accompagnés de fino ou de manzanilla (vins de xérès servis glacés). Le vin local est délicieux et peu cher.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🚗</span><span>Séville est idéalement placée pour <strong>rayonner en Andalousie</strong> : Cordoue et sa Mezquita (1h), l'Alhambra de Grenade (2h30), Ronda et ses gorges (1h30), le Parc de Doñana, les villages blancs…</span></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">📸</span><div><div class="disco-title">Photos</div><div class="disco-sub">Séville et l'Andalousie</div></div></div>
+      <div class="disco-body" style="padding:0.75rem;">
+        <div class="photos-strip">
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Catedral_de_Sevilla_-_July_2006.jpg/1280px-Catedral_de_Sevilla_-_July_2006.jpg" alt="Cathédrale de Séville" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Cathédrale de Séville</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Real_Alcazar_Seville.jpg/1280px-Real_Alcazar_Seville.jpg" alt="L'Alcazar" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">L'Alcazar</div></div>
+          <div class="photo-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Plaza_de_Espa%C3%B1a%2C_Seville%2C_Spain.jpg/1280px-Plaza_de_Espa%C3%B1a%2C_Seville%2C_Spain.jpg" alt="Plaza de España" onerror="this.parentElement.style.background='var(--light)'"><div class="photo-label">Plaza de España</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">🎯</span><div><div class="disco-title">Incontournables</div><div class="disco-sub">Séville & excursions en Andalousie</div></div></div>
+      <div class="disco-body">
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🏰</span><div><div class="act-name">L'Alcazar de Séville</div><div class="act-lieu">Centre historique · UNESCO</div></div><span class="tag cult">Culture</span></div><div class="act-desc">Le plus ancien palais royal encore en activité en Europe (XIe siècle). Jardins luxuriants, fontaines, salles mudéjares ornées d'azulejos. Lieu de tournage de Game of Thrones (Dorne). Réservez en ligne — incontournable et épuisant si fait à midi.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🌉</span><div><div class="act-name">Quartier de Triana & le Guadalquivir</div><div class="act-lieu">Rive Ouest</div></div><span class="tag cult">Culture</span></div><div class="act-desc">Le quartier populaire de Séville, berceau du flamenco et de la céramique sévillane. Le marché de Triana, les tablados de flamenco et les terrasses sur le fleuve font de ce quartier l'endroit le plus vivant de la ville après 22h.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🕌</span><div><div class="act-name">Mezquita de Cordoue</div><div class="act-lieu">Cordoue · 1h en voiture</div></div><span class="tag cult">Culture</span></div><div class="act-desc">La grande mosquée-cathédrale de Cordoue est l'un des monuments les plus extraordinaires du monde : une forêt de 856 colonnes bicolores surmontées d'arcs en fer à cheval. Symbole de la coexistence des religions. UNESCO.</div></div>
+        <div class="act-item"><div class="act-head"><span class="act-emoji">🎭</span><div><div class="act-name">Spectacle de Flamenco</div><div class="act-lieu">Tablaos de Séville · le soir</div></div><span class="tag cult">Culture</span></div><div class="act-desc">Séville est la capitale mondiale du flamenco authentique. Les tablaos (scènes de flamenco) accueillent des spectacles de danse, chant et guitare chaque soir. Réservez à l'avance — les meilleurs tablaos affichent complet en août.</div></div>
+      </div>
+    </div>
+
+    <div class="disco-block">
+      <div class="disco-block-head"><span class="disco-icon">💡</span><div><div class="disco-title">Bon à savoir</div></div></div>
+      <div class="disco-body">
+        <div class="disco-item"><span class="disco-item-icon">🌡️</span><span><strong>Chaleur extrême :</strong> Séville est régulièrement la ville la plus chaude d'Europe. Sortez tôt le matin (avant 11h) et le soir (après 18h). La sieste est une institution locale bien justifiée.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🌙</span><span><strong>Vie nocturne tardive :</strong> Les Sévillans dînent à 22h et sortent à minuit. En août, les terrasses et rues animées perdurent jusqu'à 4h du matin. Adaptez votre rythme !</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🚲</span><span><strong>Vélos et trottinettes :</strong> Le centre de Séville est parfaitement plat et dispose d'un excellent réseau de pistes cyclables. Le vélo est le meilleur moyen de se déplacer dans la ville.</span></div>
+        <div class="disco-item"><span class="disco-item-icon">🍊</span><span><strong>Orangers :</strong> Les rues de Séville sont bordées d'orangers — mais leurs fruits sont amers et non comestibles. Ils servent à faire la marmelade d'orange utilisée dans le monde entier.</span></div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+<script>
+function goPage(name, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goSub(dest, name, btn) {
+  const page = document.getElementById('page-' + dest);
+  page.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+  page.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
+  document.getElementById(dest + '-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleH(header) {
+  const body = header.nextElementSibling;
+  const chev = header.querySelector('.hcard-chev');
+  body.classList.toggle('open');
+  chev.classList.toggle('open');
+}
+</script>
+</body>
+</html>
