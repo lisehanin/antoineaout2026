@@ -18,7 +18,7 @@
   --fog:    #EDF2F5;
   --slate:  #7A8A95;
   --ink:    #2A3540;
-  --nav-h:  58px;
+  --nav-h:  64px;
 }
 html { font-size: 16px; }
 body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
@@ -41,18 +41,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-btn {
   flex: 1; background: none; border: none;
-  border-bottom: 2px solid transparent;
-  color: rgba(255,255,255,0.32);
-  font-size: 0.5rem; font-weight: 600;
-  letter-spacing: 0.07em; text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  color: rgba(255,255,255,0.38);
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 0.15rem; padding: 0.2rem 0.05rem;
+  gap: 0.2rem; padding: 0.25rem 0.05rem;
   transition: color 0.18s, border-color 0.18s;
 }
-.nav-btn .icon { font-size: 1.1rem; line-height: 1; }
-.nav-btn .lbl  { line-height: 1; white-space: nowrap; }
-.nav-btn:hover  { color: rgba(255,255,255,0.65); }
+.nav-btn .icon { font-size: 1.35rem; line-height: 1; }
+.nav-btn .lbl  { line-height: 1; white-space: nowrap; font-size: 0.58rem; }
+.nav-btn:hover  { color: rgba(255,255,255,0.75); }
 .nav-btn.on     { color: var(--gold); border-bottom-color: var(--gold); }
 
 /* ── PAGES ── */
@@ -126,11 +126,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .comp-table th:first-child { text-align: left; }
 .comp-table td {
-  padding: 0.72rem 0.8rem;
+  padding: 0.72rem 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.05);
   text-align: right; color: rgba(238,244,248,0.6);
+  white-space: nowrap;
 }
-.comp-table td:first-child { text-align: left; color: #EEF4F8; font-weight: 500; }
+.comp-table td:first-child { text-align: left; color: #EEF4F8; font-weight: 500; white-space: normal; }
 .comp-table tr { cursor: pointer; transition: background 0.15s; }
 .comp-table tr:hover td { background: rgba(255,255,255,0.05); }
 .comp-table .hi { color: var(--gold); font-weight: 700; }
@@ -416,30 +417,28 @@ button { font-family: inherit; cursor: pointer; }
     <div class="comp-box">
       <div class="comp-box-head">
         <h3>Vue d'ensemble · 2 personnes · 7 nuits</h3>
-        <p>Vols (×2) + hôtel + voiture · tarifs juin 2026</p>
+        <p>Détails complets dans chaque onglet destination</p>
       </div>
       <table class="comp-table">
         <thead>
           <tr>
             <th>Destination</th>
-            <th>Vols</th>
-            <th>Hôtel</th>
-            <th>Voiture</th>
+            <th>Vols×2</th>
             <th>Total</th>
           </tr>
         </thead>
         <tbody>
           <tr onclick="goPage('tenerife', document.querySelectorAll('.nav-btn')[3])">
-            <td>🌴 Ténérife</td><td>882 €</td><td>447 €</td><td>45 €</td><td class="hi">1 374 €</td>
+            <td>🌴 Ténérife</td><td>882 €</td><td class="hi">1 374 €</td>
           </tr>
           <tr onclick="goPage('seville', document.querySelectorAll('.nav-btn')[4])">
-            <td>💃 Séville</td><td>510 €</td><td>840 €</td><td>0 €</td><td class="hi">1 350 €</td>
+            <td>💃 Séville</td><td>510 €</td><td class="hi">1 350 €</td>
           </tr>
           <tr onclick="goPage('istanbul', document.querySelectorAll('.nav-btn')[1])">
-            <td>🕌 Istanbul</td><td>1 100 €</td><td>359 €</td><td>0 €</td><td class="hi">1 459 €</td>
+            <td>🕌 Istanbul</td><td>1 100 €</td><td class="hi">1 459 €</td>
           </tr>
           <tr onclick="goPage('sicile', document.querySelectorAll('.nav-btn')[2])">
-            <td>🌋 Sicile · Catane</td><td>556 €</td><td>727 €</td><td>191 €</td><td class="hi">1 474 €</td>
+            <td>🌋 Sicile · Catane</td><td>556 €</td><td class="hi">1 474 €</td>
           </tr>
         </tbody>
       </table>
